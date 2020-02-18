@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/filmbox/static/css/main.d1b05096.chunk.css",
+    "main.js": "/filmbox/static/js/main.10b353d1.chunk.js",
+    "main.js.map": "/filmbox/static/js/main.10b353d1.chunk.js.map",
+    "runtime-main.js": "/filmbox/static/js/runtime-main.f3865698.js",
+    "runtime-main.js.map": "/filmbox/static/js/runtime-main.f3865698.js.map",
+    "static/js/2.4d4d07bb.chunk.js": "/filmbox/static/js/2.4d4d07bb.chunk.js",
+    "static/js/2.4d4d07bb.chunk.js.map": "/filmbox/static/js/2.4d4d07bb.chunk.js.map",
+    "index.html": "/filmbox/index.html",
+    "precache-manifest.5bd8751615b1844e08a02db8416e5300.js": "/filmbox/precache-manifest.5bd8751615b1844e08a02db8416e5300.js",
+    "service-worker.js": "/filmbox/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/filmbox/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.4d4d07bb.chunk.js.LICENSE.txt": "/filmbox/static/js/2.4d4d07bb.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/filmbox/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3865698.js",
+    "static/js/2.4d4d07bb.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.10b353d1.chunk.js"
+  ]
+}
