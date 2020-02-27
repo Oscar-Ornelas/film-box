@@ -1,1 +1,46 @@
+/* General */
+* {
+  box-sizing: border-box;
+}
 
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* Film Card */
+.film-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: 0 0.75em
+}
+
+.film-card-title {
+  margin: 0;
+}
+
+.film-card-genre {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.film-card-poster {
+  order: -1;
+  height: 225px;
+  width: 150px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/*film-container*/
+.carousel {
+  display: flex;
+}
