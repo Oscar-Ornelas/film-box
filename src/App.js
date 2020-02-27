@@ -20,6 +20,12 @@ function App() {
     })
   }, []);
 
+  useEffect(() => {
+    fetch("https://api.themoviedb.org/3/configuration?api_key=5b076c9b61e53ea3c493e7d25440c109")
+    .then(response => response.json())
+    .then(data => console.log(data));
+  }, [])
+
 
   const films = filmList.map(film => {
     return (

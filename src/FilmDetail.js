@@ -12,8 +12,9 @@ function FilmDetail() {
   }, [])
 
   return (
-    <div>
+    <div className="film-detail">
       <h1>{filmData.title}</h1>
+      <div className="film-detail-img"><img src={`https://image.tmdb.org/t/p/w1280${filmData.backdrop_path}`}/></div>
     </div>
   )
 

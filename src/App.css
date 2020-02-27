@@ -3,7 +3,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -11,6 +10,7 @@ body {
 
 img {
   width: 100%;
+  object-fit: contain;
   display: block;
 }
 
@@ -43,4 +43,15 @@ img {
 /*film-container*/
 .carousel {
   display: flex;
+}
+
+/*Film Detail*/
+.film-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.film-detail-img {
+  width: 100%;
+  order: -1;
 }
