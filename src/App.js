@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import {Switch, Route} from 'react-router-dom';
 import './App.css';
-import FilmCard from './FilmCard'
-import FilmCardContainer from './FilmCardContainer'
+import FilmCard from './FilmCard';
+import FilmCardContainer from './FilmCardContainer';
+import FilmDetail from './FilmDetail';
 
 function App() {
   const [filmList, setFilmList] = useState([])
@@ -22,6 +24,7 @@ function App() {
   const films = filmList.map(film => {
     return (
       <FilmCard
+        key={film.id}
         title={film.title}
         id={film.id}
         overview={film.overview}
@@ -32,9 +35,16 @@ function App() {
   });
 
   return (
-    <div>
-      <FilmCardContainer films={films}/>
-    </div>
+    <>
+      <Switch>
+        <Route exact path="/">
+          <FilmCardContainer films={films}/>
+        </Route>
+        <Route path="/detail/movie/:filmID">
+          <FilmDetail/>
+        </Route>
+      </Switch>
+    </>
   );
 }
 
