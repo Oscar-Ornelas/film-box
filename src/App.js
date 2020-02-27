@@ -20,31 +20,11 @@ function App() {
     })
   }, []);
 
-  useEffect(() => {
-    fetch("https://api.themoviedb.org/3/configuration?api_key=5b076c9b61e53ea3c493e7d25440c109")
-    .then(response => response.json())
-    .then(data => console.log(data));
-  }, [])
-
-
-  const films = filmList.map(film => {
-    return (
-      <FilmCard
-        key={film.id}
-        title={film.title}
-        id={film.id}
-        overview={film.overview}
-        genres={film.genres}
-        posterUrl={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
-      />
-    )
-  });
-
   return (
     <>
       <Switch>
         <Route exact path="/">
-          <FilmCardContainer films={films}/>
+          <FilmCardContainer filmList={filmList}/>
         </Route>
         <Route path="/detail/movie/:filmID">
           <FilmDetail/>
