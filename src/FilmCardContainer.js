@@ -44,9 +44,8 @@ function FilmCardContainer(props) {
   return (
     <div className="film-card-container">
       <h2>{props.header}</h2>
-      
 
-      <div className="carousel">
+      <div className="carousel-inner">
         <AliceCarousel
           dotsDisabled={true}
           buttonsDisabled={true}
@@ -55,11 +54,11 @@ function FilmCardContainer(props) {
           slideToIndex={currentIndex}
           onSlideChanged={onSlideChanged}
         />
-
-        <div className="carousel-btns">
-          <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i class="fas fa-chevron-left"></i></button>
-          <button className="carousel-btn next-btn" onClick={() => slideNext()}><i class="fas fa-chevron-right"></i></button>
-        </div>
+      </div>
+      
+      <div className="carousel-btns">
+        <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i class="fas fa-chevron-left"></i></button>
+        <button className="carousel-btn next-btn" onClick={() => slideNext()}><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   )

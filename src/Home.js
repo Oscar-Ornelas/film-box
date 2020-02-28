@@ -10,10 +10,10 @@ function Home() {
 
   return (
     <div>
-      <FilmCardContainer filmList={popular}/>
-      <FilmCardContainer filmList={upcoming}/>
-      <FilmCardContainer filmList={nowPlaying}/>
-      <FilmCardContainer filmList={topRated}/>
+      <FilmCardContainer header="Popular" filmList={popular}/>
+      <FilmCardContainer header="Upcoming" filmList={upcoming}/>
+      <FilmCardContainer header="Now Playing" filmList={nowPlaying}/>
+      <FilmCardContainer header="Top Rated" filmList={topRated}/>
     </div>
   )
 }
