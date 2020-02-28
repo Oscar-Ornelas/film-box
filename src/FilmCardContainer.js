@@ -4,6 +4,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 function FilmCardContainer(props) {
+  let items = [];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [responsive, setResponsive] = useState(
     {
@@ -13,10 +14,10 @@ function FilmCardContainer(props) {
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
-  let items = [];
+
 
   useEffect(()=> {
-    const items = props.filmList.map(film => {
+    setGalleryItems(props.filmList.map(film => {
       return (
         <FilmCard
           key={film.id}
@@ -27,8 +28,7 @@ function FilmCardContainer(props) {
           posterUrl={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
         />
       )
-    });
-    setGalleryItems(items);
+    }));
   }, [props.filmList])
 
   const slideTo = (i) => setCurrentIndex(i);
@@ -45,7 +45,7 @@ function FilmCardContainer(props) {
     <div>
       <AliceCarousel
         dotsDisabled={true}
-        buttonsDisabled={false}
+        buttonsDisabled={true}
         items={galleryItems}
         responsive={responsive}
         slideToIndex={currentIndex}
@@ -53,8 +53,8 @@ function FilmCardContainer(props) {
       />
 
       <ul>{items.map(thumbItem)}</ul>
-      <button onClick={() => slidePrev()}>Prev button</button>
-      <button onClick={() => slideNext()}>Next button</button>
+      <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i class="fas fa-chevron-left"></i></button>
+      <button className="carousel-btn next-btn" onClick={() => slideNext()}><i class="fas fa-chevron-right"></i></button>
     </div>
   )
 }
