@@ -42,19 +42,25 @@ function FilmCardContainer(props) {
   const thumbItem = (item, i) => <span onClick={() => slideTo(i)}>* </span>
 
   return (
-    <div>
-      <AliceCarousel
-        dotsDisabled={true}
-        buttonsDisabled={true}
-        items={galleryItems}
-        responsive={responsive}
-        slideToIndex={currentIndex}
-        onSlideChanged={onSlideChanged}
-      />
+    <div className="film-card-container">
+      <h2>{props.header}</h2>
+      
 
-      <ul>{items.map(thumbItem)}</ul>
-      <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i class="fas fa-chevron-left"></i></button>
-      <button className="carousel-btn next-btn" onClick={() => slideNext()}><i class="fas fa-chevron-right"></i></button>
+      <div className="carousel">
+        <AliceCarousel
+          dotsDisabled={true}
+          buttonsDisabled={true}
+          items={galleryItems}
+          responsive={responsive}
+          slideToIndex={currentIndex}
+          onSlideChanged={onSlideChanged}
+        />
+
+        <div className="carousel-btns">
+          <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i class="fas fa-chevron-left"></i></button>
+          <button className="carousel-btn next-btn" onClick={() => slideNext()}><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
     </div>
   )
 }
