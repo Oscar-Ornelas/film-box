@@ -9,8 +9,9 @@ function FilmCardContainer(props) {
   const [responsive, setResponsive] = useState(
     {
       0: {items: 3},
-      650: {items: 5},
-      1024: { items: 8 }
+      650: {items: 4},
+      900: {items: 6},
+      1200: { items: 7 }
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
@@ -55,7 +56,7 @@ function FilmCardContainer(props) {
           onSlideChanged={onSlideChanged}
         />
       </div>
-      
+
       <div className="carousel-btns">
         <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i class="fas fa-chevron-left"></i></button>
         <button className="carousel-btn next-btn" onClick={() => slideNext()}><i class="fas fa-chevron-right"></i></button>

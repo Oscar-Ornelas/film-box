@@ -9,7 +9,7 @@ function Home() {
   const topRated = useDataCall("top_rated");
 
   return (
-    <div>
+    <div className="home">
       <FilmCardContainer header="Popular" filmList={popular}/>
       <FilmCardContainer header="Upcoming" filmList={upcoming}/>
       <FilmCardContainer header="Now Playing" filmList={nowPlaying}/>
