@@ -44,7 +44,7 @@ function FilmCardContainer(props) {
 
   return (
     <div className="film-card-container">
-      <h2>{props.header}</h2>
+      <h2 className="carousel-header">{props.header}</h2>
 
       <div className="carousel-inner">
         <AliceCarousel

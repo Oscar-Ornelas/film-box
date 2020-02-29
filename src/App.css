@@ -7,9 +7,9 @@ body {
   font-family: 'Montserrat';
   margin: 0;
   padding: 0;
-  background: #5D001E;
+  background: #2C0F31;
   font-size: 1rem;
-  color: #E3E2DF;
+  color: #fff;
 }
 
 img {
@@ -25,6 +25,15 @@ button {
 /*Home*/
 .home {
   padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+div hr {
+  margin: 0.7em 0 4em 0;
+  border : 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(195, 7, 63, 0), rgba(195, 7, 63, 0.3), rgba(195, 7, 63, 0));
 }
 
 @media (min-width: 800px) {
@@ -44,6 +53,14 @@ button {
   text-align: center;
   align-items: center;
   margin: 0 0.4em;
+  transform: scale(0.9);
+  transition: transform 250ms;
+  opacity: 0.7;
+}
+
+.film-card:hover {
+  opacity: 1;
+  transform: scale(1.0);
 }
 
 .film-card-title,
@@ -51,17 +68,18 @@ button {
 .film-card-genre,
 .film-card-genre:visited {
   margin: 0;
-  color: #E3E2DF;
+  font-size: 0.85rem;
+  color: #fff;
 }
 
 .film-card-genre {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
 }
 
 .film-card-poster {
   order: -1;
-  height: 190px;
-  width: 120px;
+  height: 205px;
+  width: 130px;
   border-radius: 5px;
   object-fit: cover;
 }
@@ -70,6 +88,13 @@ button {
 .film-card-container {
   display: flex;
   flex-direction: column;
+}
+
+.carousel-header {
+  font-size: 1.3rem;
+  padding-left: 0.6em;
+  letter-spacing: 5px;
+  margin: 0 0 1.5em 0;
 }
 
 .carousel-btns {
@@ -83,7 +108,7 @@ button {
   background: none;
   border: none;
   font-size: 2rem;
-  margin: 0 0.5em -10.5em;
+  margin: 0 0.5em -10em;
   z-index: 100;
 }
 
