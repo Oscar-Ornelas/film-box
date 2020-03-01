@@ -21,7 +21,8 @@ function ImageCarousel(props) {
         return (
           <Link to={`/film-box/detail/${props.type}/${item.id}`} className="link">
             <div className="image-carousel-item">
-              <div className="inner-carousel" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w1280${item.backdrop_path})`}}>
+              <div className="inner-carousel" style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.73)),
+                                                                        url(https://image.tmdb.org/t/p/w1280${item.backdrop_path})`}}>
                 <h3 className="image-carousel-category">Latest</h3>
                 <h2 className="image-carousel-title">{item.title}</h2>
                 <p className="image-carousel-info">{item.genres[0].name} | {item.vote_average} Rating</p>
@@ -45,6 +46,7 @@ function ImageCarousel(props) {
       <AliceCarousel
         items={galleryItems}
         responsive={responsive}
+        swipeDisabled={true}
         dotsDisabled={true}
         buttonsDisabled={true}
         autoPlayInterval={5000}
