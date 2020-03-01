@@ -14,13 +14,18 @@ body {
 
 img {
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
 button {
   display: inline-block;
 }
+
+ .link{
+   text-decoration: none;
+   color: inherit;
+ }
 
 /*Home*/
 .home {
@@ -48,7 +53,7 @@ button {
 }
 
 div hr {
-  margin: 0.7em 0 4em 0;
+  margin: 0.7em 0 1em 0;
   border : 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(195, 7, 63, 0), rgba(195, 7, 63, 0.3), rgba(195, 7, 63, 0));
@@ -61,24 +66,26 @@ div hr {
 }
 
 /*Image Carousel*/
-.image-carousel-item {
-  max-height: 50vh;
+.image-carousel {
+  width: 100%;
 }
 
-.carousel-image {
-  object-fit: cover;
-}
-
-.image-carousel-details {
-  padding: 0 0 0 3em;
-  margin: -8em 0 0 0;
-  z-index: 100;
+.inner-carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 2.25em 2.25em;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 60vh;
 }
 
 .image-carousel-category,
 .image-carousel-title,
 .image-carousel-info {
-  margin: 0.5em 0 0 0;
+  margin: 0;
 }
 
 .image-carousel-category {
@@ -87,6 +94,7 @@ div hr {
 
 .image-carousel-title {
   font-size: 1.5rem;
+  margin: 0.25em 0;
 }
 
 .image-carousel-info,
@@ -94,35 +102,15 @@ div hr {
   font-size: 1rem;
 }
 
-@media (min-width: 500px) {
-  .image-carousel-item {
-    max-height: 75vh;
-  }
-}
-
 @media (min-width: 750px) {
-  .image-carousel-item {
-    max-height: 100vh;
+  .inner-carousel {
+    min-height: 100vh;
+    padding: 0 0 5em 5em;
   }
 }
 
-@media (min-width: 800px) {
-  .image-carousel-details {
-    padding: 0 0 0 8em;
-  }
-}
-
-@media (min-width: 1000px) {
-  .image-carousel-details {
-    margin: -18em 0 6em 0;
-  }
-}
 
 /* Film Card */
-.link {
-  text-decoration: none;
-}
-
 .film-card {
   display: flex;
   flex-direction: column;
@@ -145,7 +133,6 @@ div hr {
 .film-card-genre:visited {
   margin: 0;
   font-size: 0.85rem;
-  color: #fff;
 }
 
 .film-card-genre {
@@ -160,6 +147,15 @@ div hr {
   object-fit: cover;
 }
 
+.film-card-rating {
+  order: -2;
+  z-index: 100;
+  align-self: flex-start;
+  margin: 2.5em 0 -2.5em 0em;
+  padding: 2px 3px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 /*film-container*/
 .film-card-container {
   display: flex;
@@ -170,11 +166,11 @@ div hr {
   font-size: 1.3rem;
   padding-left: 0.6em;
   letter-spacing: 5px;
-  margin: 0 0 1.5em 0;
+  margin: 0 0 1em 0;
 }
 
 .carousel-header:first-of-type {
-  margin: 2em 0 1.5em 0;
+  margin: 3em 0 1.5em 0;
 }
 
 .carousel-btns {
@@ -188,7 +184,7 @@ div hr {
   background: none;
   border: none;
   font-size: 2rem;
-  margin: 0 0.5em -12em;
+  margin: 0 0.5em -15.5em;
   z-index: 100;
 }
 

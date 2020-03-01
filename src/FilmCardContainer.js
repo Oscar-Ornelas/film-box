@@ -8,7 +8,8 @@ function FilmCardContainer(props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [responsive, setResponsive] = useState(
     {
-      0: {items: 3},
+      0: {items: 2},
+      450: {items: 3},
       650: {items: 4},
       900: {items: 6},
       1200: { items: 7 }
@@ -26,6 +27,7 @@ function FilmCardContainer(props) {
           id={film.id}
           overview={film.overview}
           genres={film.genres}
+          rating={film.vote_average}
           posterUrl={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
         />
       )

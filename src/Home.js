@@ -24,8 +24,8 @@ function Home() {
         <SemipolarLoading/>
       </div>
 
-      <div className={isLoading ? "hidden" : "visible"}>
-        <ImageCarousel/>
+      <div className={`main-content ${isLoading ? "hidden" : "visible"}`}>
+        <ImageCarousel type="movie"/>
         <div className="home">
           <FilmCardContainer header="Popular" filmList={popular}/>
           <div><hr/></div>
