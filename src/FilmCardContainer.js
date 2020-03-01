@@ -54,6 +54,7 @@ function FilmCardContainer(props) {
           responsive={responsive}
           slideToIndex={currentIndex}
           onSlideChanged={onSlideChanged}
+          swipeDisabled={true}
         />
       </div>
 
