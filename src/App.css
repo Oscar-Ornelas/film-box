@@ -32,7 +32,7 @@ button {
 .loading-icon {
   position: fixed;
   top: 50%;
-  right: 52%;
+  right: 55%;
 }
 
 .visible {
@@ -57,6 +57,62 @@ div hr {
 @media (min-width: 800px) {
   .home {
     padding: 0 8em;
+  }
+}
+
+/*Image Carousel*/
+.image-carousel-item {
+  max-height: 50vh;
+}
+
+.carousel-image {
+  object-fit: cover;
+}
+
+.image-carousel-details {
+  padding: 0 0 0 3em;
+  margin: -8em 0 0 0;
+  z-index: 100;
+}
+
+.image-carousel-category,
+.image-carousel-title,
+.image-carousel-info {
+  margin: 0.5em 0 0 0;
+}
+
+.image-carousel-category {
+  text-transform: uppercase;
+}
+
+.image-carousel-title {
+  font-size: 1.5rem;
+}
+
+.image-carousel-info,
+.image-carousel-category {
+  font-size: 1rem;
+}
+
+@media (min-width: 500px) {
+  .image-carousel-item {
+    max-height: 75vh;
+  }
+}
+
+@media (min-width: 750px) {
+  .image-carousel-item {
+    max-height: 100vh;
+  }
+
+  .image-carousel-details {
+    margin: -18em 0 6em 0;
+  }
+}
+
+@media (min-width: 800px) {
+  .image-carousel-details {
+    padding: 0 0 0 8em;
   }
 }
 
@@ -115,6 +171,10 @@ div hr {
   margin: 0 0 1.5em 0;
 }
 
+.carousel-header:first-of-type {
+  margin: 2em 0 1.5em 0;
+}
+
 .carousel-btns {
   order: -1;
   display: flex;
@@ -126,7 +186,7 @@ div hr {
   background: none;
   border: none;
   font-size: 2rem;
-  margin: 0 0.5em -10em;
+  margin: 0 0.5em -12em;
   z-index: 100;
 }
 

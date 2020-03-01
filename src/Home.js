@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import useDataCall from './useDataCall';
 import {SemipolarLoading} from 'react-loadingg';
+import ImageCarousel from './ImageCarousel';
 import FilmCardContainer from './FilmCardContainer';
 
 function Home() {
@@ -16,15 +17,15 @@ function Home() {
     }, 1500)
   }, [])
 
-
-
   return (
-    <div>
+    <main>
+
       <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
         <SemipolarLoading/>
       </div>
+
       <div className={isLoading ? "hidden" : "visible"}>
-        <img src="https://image.tmdb.org/t/p/w1280/n6bUvigpRFqSwmPp1m2YADdbRBc.jpg"/>
+        <ImageCarousel/>
         <div className="home">
           <FilmCardContainer header="Popular" filmList={popular}/>
           <div><hr/></div>
@@ -35,7 +36,8 @@ function Home() {
           <FilmCardContainer header="Top Rated" filmList={topRated}/>
         </div>
       </div>
-    </div>
+
+    </main>
   )
 
 

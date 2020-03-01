@@ -40,8 +40,6 @@ function FilmCardContainer(props) {
 
   const slidePrev = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1);
 
-  const thumbItem = (item, i) => <span onClick={() => slideTo(i)}>* </span>
-
   return (
     <div className="film-card-container">
       <h2 className="carousel-header">{props.header}</h2>
