@@ -70,7 +70,8 @@ div hr {
   width: 100%;
 }
 
-.inner-carousel {
+.inner-carousel,
+.film-detail-img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -103,7 +104,8 @@ div hr {
 }
 
 @media (min-width: 750px) {
-  .inner-carousel {
+  .inner-carousel,
+  .film-detail-img {
     min-height: 100vh;
     padding: 0 0 5em 5em;
   }
@@ -139,7 +141,8 @@ div hr {
   font-size: 0.65rem;
 }
 
-.film-card-poster {
+.film-card-poster,
+.film-detail-poster {
   order: -1;
   height: 205px;
   width: 130px;
@@ -151,7 +154,7 @@ div hr {
   order: -2;
   z-index: 100;
   align-self: center;
-  margin: 1.5em 0 -1.5em 0;
+  margin: 0 0 -1.5em 0;
   padding: 2px 3px;
   background: rgba(0, 0, 0, 0.3);
 }
@@ -166,7 +169,7 @@ div hr {
   font-size: 1.3rem;
   padding-left: 0.6em;
   letter-spacing: 5px;
-  margin: 0 0 1em 0;
+  margin: 0;
 }
 
 .carousel-header:first-of-type {
@@ -199,7 +202,25 @@ div hr {
     flex-direction: column;
 }
 
+.film-detail-back {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .film-detail-img {
-  width: 100%;
   order: -1;
+  justify-content: space-between;
+}
+
+.film-detail-card {
+  display: flex;
+}
+
+.film-detail-card-info {
+  margin-left: 2em;
+}
+
+.film-detail-poster {
+  height: 140px;
+  width: 95px;
 }

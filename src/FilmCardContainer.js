@@ -25,7 +25,6 @@ function FilmCardContainer(props) {
           key={film.id}
           title={film.title}
           id={film.id}
-          overview={film.overview}
           genres={film.genres}
           rating={film.vote_average}
           posterUrl={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
@@ -59,8 +58,8 @@ function FilmCardContainer(props) {
       </div>
 
       <div className="carousel-btns">
-        <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i class="fas fa-chevron-left"></i></button>
-        <button className="carousel-btn next-btn" onClick={() => slideNext()}><i class="fas fa-chevron-right"></i></button>
+        <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i className="fas fa-chevron-left"></i></button>
+        <button className="carousel-btn next-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
       </div>
     </div>
   )
