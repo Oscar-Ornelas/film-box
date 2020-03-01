@@ -28,7 +28,7 @@ button {
  }
 
 /*Home*/
-.home {
+.container {
   padding: 0 2em;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@ div hr {
 }
 
 @media (min-width: 800px) {
-  .home {
+  .container {
     padding: 0 8em;
   }
 }
@@ -223,4 +223,8 @@ div hr {
 .film-detail-poster {
   height: 140px;
   width: 95px;
+}
+
+.overview {
+  max-width: 800px;
 }
