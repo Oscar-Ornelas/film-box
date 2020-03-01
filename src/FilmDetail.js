@@ -1,14 +1,51 @@
 import React, {useState, useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import {SemipolarLoading} from 'react-loadingg';
+import AliceCarousel from 'react-alice-carousel';
 import FilmCard from './FilmCard';
 
 function FilmDetail() {
+  const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [film, setFilm] = useState({});
+  const [cast, setCast] = useState([]);
+  const [trailers, setTrailers] = useState([])
   const {filmID} = useParams();
   const history = useHistory();
-
   const [isLoading, setIsLoading] = useState(true);
+  let items = [];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [responsive, setResponsive] = useState(
+    {
+      0: {items: 2},
+      450: {items: 3},
+      650: {items: 4},
+      900: {items: 6},
+      1200: { items: 7 }
+    }
+  );
+  const [galleryItems, setGalleryItems] = useState([]);
+
+  useEffect(()=> {
+    fetch(`https://api.themoviedb.org/3/movie/${filmID}/credits?api_key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+      for(let i = 0; i < 10; i++) {
+        setCast(prevCast => [...prevCast, data.cast[i]]);
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/${filmID}?api_key=${API_KEY}&language=en-US`)
+    .then(response => response.json())
+    .then(data => setFilm(data))
+  }, [])
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/${filmID}/videos?api_key=${API_KEY}&language=en-US`)
+    .then(response => response.json())
+    .then(data => setTrailers(data.results))
+  }, [])
 
   useEffect(() => {
     setTimeout(() => {
@@ -17,10 +54,22 @@ function FilmDetail() {
   }, [])
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${filmID}?api_key=5b076c9b61e53ea3c493e7d25440c109&language=en-US`)
-    .then(response => response.json())
-    .then(data => setFilm(data))
-  }, [])
+    items = cast.map(person => (
+      <div className="film-detail-cast-item">
+        <p className="film-detail-cast-name">{person.name}</p>
+        <img className="film-detail-cast-img" src={`https://image.tmdb.org/t/p/w185${person.profile_path}`}/>
+      </div>
+    ))
+    setGalleryItems(items);
+  }, [cast])
+
+  const onSlideChanged = (e) => setCurrentIndex(e.item);
+
+  const slideNext = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex + 1);
+
+  const slidePrev = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1);
+
+  console.log(trailers);
 
   return (
     <main>
@@ -44,9 +93,33 @@ function FilmDetail() {
 
         <div className="main-content container">
           <section className="overview">
-            <h2>Overview</h2>
+            <h2 className="detail-header">Overview</h2>
             <p>{film.overview}</p>
           </section>
+
+          <section className="cast">
+            <h2 className="detail-header">Cast</h2>
+
+            <div className="carousel-inner">
+              <AliceCarousel
+                dotsDisabled={true}
+                buttonsDisabled={true}
+                items={galleryItems}
+                responsive={responsive}
+                slideToIndex={currentIndex}
+                onSlideChanged={onSlideChanged}
+                swipeDisabled={true}
+              />
+            </div>
+
+            <div className="carousel-btns">
+              <button className="carousel-btn prev-btn cast-btn" onClick={() => slidePrev()}><i className="fas fa-chevron-left"></i></button>
+              <button className="carousel-btn next-btn cast-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
+            </div>
+
+          </section>
+
+
         </div>
 
 
