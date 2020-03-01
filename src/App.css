@@ -104,15 +104,17 @@ div hr {
   .image-carousel-item {
     max-height: 100vh;
   }
-
-  .image-carousel-details {
-    margin: -18em 0 6em 0;
-  }
 }
 
 @media (min-width: 800px) {
   .image-carousel-details {
     padding: 0 0 0 8em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .image-carousel-details {
+    margin: -18em 0 6em 0;
   }
 }
 

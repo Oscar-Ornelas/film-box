@@ -50,7 +50,7 @@ function ImageCarousel() {
         autoPlay={true}
         fadeOutAnimation={true}
         playButtonEnabled={false}
-        disableAutoPlayOnAction={true}
+        stopAutoPlayOnHover={false}
       />
     </div>
   )
