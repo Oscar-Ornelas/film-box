@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 function FilmCard(props){
   return (
-    <Link to={`/detail/movie/${props.id}`} className="link">
+    <Link to={`/film-box/detail/movie/${props.id}`} className="link">
       <div className="film-card">
         <p className="film-card-title">{props.title}</p>
         <img className="film-card-poster" src={props.posterUrl}/>

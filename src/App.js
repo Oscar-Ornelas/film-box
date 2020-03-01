@@ -8,10 +8,10 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/film-box">
           <Home/>
         </Route>
-        <Route path="/detail/movie/:filmID">
+        <Route path="/film-box/detail/movie/:filmID">
           <FilmDetail/>
         </Route>
       </Switch>
