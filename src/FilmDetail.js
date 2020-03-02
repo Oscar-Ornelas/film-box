@@ -3,12 +3,15 @@ import {useParams, useHistory} from 'react-router-dom';
 import {SemipolarLoading} from 'react-loadingg';
 import AliceCarousel from 'react-alice-carousel';
 import FilmCard from './FilmCard';
+import FilmCardContainer from './FilmCardContainer';
+import Review from './Review';
 
 function FilmDetail() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [film, setFilm] = useState({});
   const [cast, setCast] = useState([]);
-  const [trailers, setTrailers] = useState([])
+  const [reviewData, setReviewData] = useState([])
+  const [similarMoviesData, setSimilarMoviesData] = useState([])
   const {filmID} = useParams();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
@@ -42,9 +45,21 @@ function FilmDetail() {
   }, [])
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${filmID}/videos?api_key=${API_KEY}&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/movie/${filmID}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
     .then(response => response.json())
-    .then(data => setTrailers(data.results))
+    .then(data => {
+      for(let i = 0; i < 4; i++) {
+        if(data.results[i] !== undefined) {
+          setReviewData(prevReviewData => [...prevReviewData, data.results[i]])
+        }
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/${filmID}/similar?api_key=${API_KEY}&language=en-US&page=1`)
+    .then(response => response.json())
+    .then(data => setSimilarMoviesData(data.results))
   }, [])
 
   useEffect(() => {
@@ -69,7 +84,26 @@ function FilmDetail() {
 
   const slidePrev = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1);
 
-  console.log(trailers);
+  const reviews = reviewData.map(review => (
+      <Review
+        reviewer={review.author}
+        content={review.content}
+        fullReviewSrc={review.url}
+      />
+  ))
+
+  const similarMovies = similarMoviesData.map(film => (
+      <FilmCard
+        key={film.id}
+        title={film.title}
+        id={film.id}
+        genres={film.genres}
+        rating={film.vote_average}
+        posterUrl={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
+      />
+  ))
+
+  console.log(similarMovies);
 
   return (
     <main>
@@ -119,6 +153,18 @@ function FilmDetail() {
 
           </section>
 
+          <section>
+            <h2 className="detail-header">Popular Reviews</h2>
+            {reviewData.length > 0 ? reviews : <Review
+              reviewer="No Reviews Yet!"
+              content=""
+              fullReviewSrc=""
+            />}
+          </section>
+
+          <section>
+            <FilmCardContainer header="Similar Movies" filmList={similarMovies}/>
+          </section>
 
         </div>
 
