@@ -91,9 +91,10 @@ button {
   color: #fff;
 }
 
-.search,
+.searchInput,
 .search-btn {
   background: white;
+  font-family: 'Montserrat';
   border-radius: 5px;
 }
 
@@ -121,7 +122,7 @@ button {
 
 /*Home*/
 .container {
-  padding: 0 2em;
+  padding: 0 1em;
   display: flex;
   flex-direction: column;
 }
@@ -411,7 +412,7 @@ div hr {
 /* Search */
 .search-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .search-header {
@@ -426,9 +427,18 @@ div hr {
 }
 
 .search-item-poster {
-  height: 250px;
+  height: 225px;
   width: 150px;
   border-radius: 8px;
+}
+
+.switch-page-btns {
+  display: flex;
+  justify-content: center;
+}
+
+.switch-page-btn {
+  font-family: 'Montserrat';
 }
 
 @media (min-width: 1000px) {

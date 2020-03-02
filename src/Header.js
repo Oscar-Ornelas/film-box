@@ -34,7 +34,7 @@ function Header() {
           <ul className="nav-list">
             <li className="nav-item">
               <form className="form">
-                <input name="searchValue" value={search} onChange={handleChange} className="search" type="text"></input>
+                <input name="searchValue" value={search} onChange={handleChange} className="searchInput" type="text"></input>
                 <button onClick={changeRoute} className="search-btn"><i class="fas fa-search"></i></button>
               </form>
             </li>

@@ -29,7 +29,7 @@ function Search() {
       <div className="search-item-content">
         <p className="search-item-title">{film.title}</p>
       </div>
-      <img src={`https://image.tmdb.org/t/p/w185${film.poster_path}`} className="search-item-poster"></img>
+      <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} className="search-item-poster"></img>
     </div>
   ))
 
@@ -43,6 +43,10 @@ function Search() {
       <h1 className="search-header">Search results for {search}</h1>
       <div className="search-grid">
         {films}
+      </div>
+      <div className="switch-page-btns">
+        <button className="switch-page-btn prev-page-btn">Previous Page</button>
+        <button className="switch-page-btn next-page-btn">Next Page</button>
       </div>
     </main>
   )
