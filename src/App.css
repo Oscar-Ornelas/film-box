@@ -22,10 +22,102 @@ button {
   display: inline-block;
 }
 
- .link{
+ .link {
    text-decoration: none;
    color: inherit;
  }
+
+/* Header */
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.header-content {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 100%;
+  transform: translateY(0);
+  padding: 2em 2em;
+}
+
+.header-content,
+.nav-list {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  background: #000;
+}
+
+.form {
+  margin: 0 auto;
+}
+
+.navigation-open {
+  transform: translateY(0);
+  transition: transform 500ms;
+}
+
+.navigation-close {
+  transform: translateY(-150%);
+  transition: transform 500ms;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.nav-toggler-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-toggler {
+  position: absolute;
+  z-index: 100;
+  background: none;
+  border: none;
+  font-size: 2.7rem;
+  color: #fff;
+}
+
+.search,
+.search-btn {
+  background: white;
+  border-radius: 5px;
+}
+
+.search-btn {
+  position: absolute;
+}
+
+@media (min-width: 700px) {
+
+  .header-content {
+    padding: 1.25em 4em;
+  }
+
+  .nav-toggler {
+    display: none;
+  }
+
+  .navigation-close,
+  .navigation-open {
+    transform: translateY(0);
+    transition: transform 500ms;
+  }
+
+}
 
 /*Home*/
 .container {
