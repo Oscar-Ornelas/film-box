@@ -17,7 +17,6 @@ function FilmCard(props){
         <p className="film-card-genre">{props.genres[0].name} {props.genres.length > 1 ? ` / ${props.genres[1].name}` : ""}</p>
         <p className="film-card-rating"><i class="fas fa-star"></i> {props.rating}</p>
       </div>
-
   )
 }
 

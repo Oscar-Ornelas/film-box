@@ -127,6 +127,7 @@ div hr {
 .film-card:hover {
   opacity: 1;
   transform: scale(1.0);
+  cursor: pointer;
 }
 
 .film-card-title,
