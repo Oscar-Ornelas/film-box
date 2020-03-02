@@ -106,7 +106,7 @@ function FilmDetail() {
 
       <div className={`film-detail ${isLoading ? "hidden" : "visible"}`}>
         <div className="film-detail-img"
-        style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.73)), url(https://image.tmdb.org/t/p/w1280${film.backdrop_path})`}}>
+        style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.93)), url(https://image.tmdb.org/t/p/w1280${film.backdrop_path})`}}>
           <p className="film-detail-back" onClick={() => history.replace(`/`)}><i className="fas fa-chevron-left"></i></p>
           <div className="film-detail-card">
             <div className="film-detail-card-info">

@@ -37,7 +37,7 @@ button {
 .loading-icon {
   position: fixed;
   top: 50%;
-  right: 53%;
+  right: 55%;
 }
 
 .visible {
@@ -218,11 +218,16 @@ div hr {
 
 .film-detail-card {
   display: flex;
+  align-items: center;
   margin: auto 0 0 0;
 }
 
 .film-detail-card-info {
-  margin-left: 2em;
+  margin-left: 1.25em;
+}
+
+.film-detail-title {
+  font-size: 1.75rem;
 }
 
 .film-detail-poster {

@@ -19,7 +19,7 @@ function ImageCarousel(props) {
     items = latest.map(item => {
       if(count < 3) {
         return (
-          <Link to={`/film-box/detail/${props.type}/${item.id}`} className="link">
+          <Link to={`/detail/${props.type}/${item.id}`} className="link">
             <div className="image-carousel-item">
               <div className="inner-carousel" style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.73)),
                                                                         url(https://image.tmdb.org/t/p/w1280${item.backdrop_path})`}}>
