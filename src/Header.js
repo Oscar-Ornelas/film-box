@@ -1,17 +1,24 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 function Header() {
-  const [searchValue, setSearchValue] = useState("");
+  const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
+  const [search, setSearch] = useState("");
   const [navSlide, setNavSlide] = useState(false);
+  const history = useHistory();
 
   function handleChange(e) {
     const {value} = e.target;
-    setSearchValue(value);
+    setSearch(value);
   }
 
   function toggleNavSlide() {
     setNavSlide(prevNavSlide => !prevNavSlide);
+  }
+
+  function changeRoute() {
+    history.replace(`/search/${search}`);
+    window.location.reload();
   }
 
   return (
@@ -27,8 +34,8 @@ function Header() {
           <ul className="nav-list">
             <li className="nav-item">
               <form className="form">
-                <input name="searchValue" value={searchValue} onChange={handleChange} className="search" type="text"></input>
-                <button className="search-btn"><i class="fas fa-search"></i></button>
+                <input name="searchValue" value={search} onChange={handleChange} className="search" type="text"></input>
+                <button onClick={changeRoute} className="search-btn"><i class="fas fa-search"></i></button>
               </form>
             </li>
           </ul>

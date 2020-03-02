@@ -206,20 +206,26 @@ div hr {
 
 /* Film Card */
 .film-card {
+  margin: 0 0.4em;
+  opacity: 0.7;
+}
+
+.film-card,
+.search-item {
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  margin: 0 0.4em;
   transform: scale(0.9);
   transition: transform 250ms;
-  opacity: 0.7;
+  cursor: pointer;
 }
 
-.film-card:hover {
+.film-card:hover,
+.search-item:hover {
   opacity: 1;
   transform: scale(1.0);
-  cursor: pointer;
+
 }
 
 .film-card-title,
@@ -236,7 +242,8 @@ div hr {
 
 .film-card-poster,
 .film-detail-poster,
-.film-detail-cast-img {
+.film-detail-cast-img,
+.search-item-poster {
   order: -1;
   height: 205px;
   width: 130px;
@@ -399,4 +406,34 @@ div hr {
   padding-right: 0.5em;
   transition: all 0.8s ease;
 
+}
+
+/* Search */
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.search-header {
+  text-align: center;
+  padding: 3em 0 0 0;
+  margin: 0 0 2em 0;
+}
+
+.search-item {
+  grid-column: auto;
+  opacity: 0.9;
+}
+
+.search-item-poster {
+  height: 250px;
+  width: 150px;
+  border-radius: 8px;
+}
+
+@media (min-width: 1000px) {
+  .search-item-poster {
+    height: 250px;
+    width: 150px;
+  }
 }
