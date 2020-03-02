@@ -6,7 +6,7 @@ function FilmCard(props){
   const history = useHistory();
 
   function changeRoute() {
-    history.replace(`/film-box/detail/movie/${props.id}`);
+    history.replace(`/detail/movie/${props.id}`);
     window.location.reload();
   }
 
