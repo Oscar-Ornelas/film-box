@@ -6,7 +6,7 @@ import ScrollToTop from './ScrollToTop';
 
 
 ReactDOM.render(
-  <Router>
+  <Router basename="/film-box">
     <ScrollToTop/>
     <App />
   </Router>, document.getElementById('root'));
