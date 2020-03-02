@@ -10,8 +10,8 @@ function FilmDetail() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [film, setFilm] = useState({});
   const [cast, setCast] = useState([]);
-  const [reviewData, setReviewData] = useState([])
-  const [similarMoviesData, setSimilarMoviesData] = useState([])
+  const [reviewData, setReviewData] = useState([]);
+  const [similarMovies, setSimilarMovies] = useState([]);
   const {filmID} = useParams();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
@@ -59,7 +59,13 @@ function FilmDetail() {
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${filmID}/similar?api_key=${API_KEY}&language=en-US&page=1`)
     .then(response => response.json())
-    .then(data => setSimilarMoviesData(data.results))
+    .then(data => {
+      data.results.forEach(film => (
+        fetch(`https://api.themoviedb.org/3/movie/${film.id}?api_key=${API_KEY}&language=en-US`)
+        .then(response => response.json())
+        .then(data => setSimilarMovies(prevSimilarMovies => [...prevSimilarMovies, data]))
+      ))
+    })
   }, [])
 
   useEffect(() => {
@@ -92,19 +98,6 @@ function FilmDetail() {
       />
   ))
 
-  const similarMovies = similarMoviesData.map(film => (
-      <FilmCard
-        key={film.id}
-        title={film.title}
-        id={film.id}
-        genres={film.genres}
-        rating={film.vote_average}
-        posterUrl={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
-      />
-  ))
-
-  console.log(similarMovies);
-
   return (
     <main>
       <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
@@ -114,7 +107,7 @@ function FilmDetail() {
       <div className={`film-detail ${isLoading ? "hidden" : "visible"}`}>
         <div className="film-detail-img"
         style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.73)), url(https://image.tmdb.org/t/p/w1280${film.backdrop_path})`}}>
-          <p className="film-detail-back" onClick={() => history.goBack()}><i className="fas fa-chevron-left"></i></p>
+          <p className="film-detail-back" onClick={() => history.push(`/film-box`)}><i className="fas fa-chevron-left"></i></p>
           <div className="film-detail-card">
             <div className="film-detail-card-info">
               <h2 className="film-detail-title">{film.title}</h2>
