@@ -87,15 +87,18 @@ button {
   color: #fff;
 }
 
-.search-input,
-.search-btn {
-  background: white;
-  font-family: 'Montserrat';
-  border-radius: 5px;
+.search-input {
+  padding: 6px 15px;
 }
 
+.search-input,
 .search-btn {
-  position: absolute;
+  display: inline;
+  background: white;
+  font-family: 'Montserrat';
+  border-radius: 25px;
+  border-style: none;
+  padding: 6px 15px;
 }
 
 @media (min-width: 700px) {
