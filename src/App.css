@@ -36,19 +36,11 @@ button {
 
 .header-content {
   transform: translateY(0);
-  padding: 1em 1em;
-}
-
-.header-content,
-.nav-list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #000;
-}
-
-.nav {
-  margin: 0 auto;
+  padding: 2em 1em;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(4, 1fr);
+  background: #45264b;
 }
 
 .navigation-open {
@@ -61,16 +53,27 @@ button {
   transition: transform 500ms;
 }
 
+.logo-container {
+  grid-column: 1 / 2;
+}
+
 .logo {
-  margin: 0;
   font-size: 1.5rem;
+  margin: 0;
+}
+
+.nav {
+  grid-column: 2 / 4;
+  justify-self: center;
 }
 
 .nav-list {
-  display: flex;
   list-style: none;
-  justify-content: center;
   margin: 0;
+}
+
+.form {
+  display: flex;
 }
 
 .nav-toggler-container {
@@ -80,6 +83,7 @@ button {
 
 .nav-toggler {
   position: absolute;
+  padding: 0.3em 0.25em 0 0;
   z-index: 100;
   background: none;
   border: none;
@@ -87,18 +91,25 @@ button {
   color: #fff;
 }
 
-.search-input {
-  padding: 6px 15px;
-}
-
 .search-input,
 .search-btn {
   display: inline;
-  background: white;
   font-family: 'Montserrat';
   border-radius: 25px;
   border-style: none;
-  padding: 6px 15px;
+}
+
+.search-input {
+  background: white;
+  padding: 8px 40px;
+}
+
+.search-btn {
+  position: absolute;
+  margin: 0 0 0 15em;
+  padding: 8px 20px;
+  background: #a62131;
+  color: #fff;
 }
 
 @media (min-width: 700px) {

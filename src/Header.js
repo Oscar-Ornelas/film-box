@@ -27,9 +27,11 @@ function Header() {
         <button onClick={toggleNavSlide} className="nav-toggler">&#9776;</button>
       </div>
       <div className={`header-content ${navSlide ? "navigation-open" : "navigation-close"}`}>
-        <Link to="/" className="link">
-          <h1 className="logo">Filmbox</h1>
-        </Link>
+        <div className="logo-container">
+          <Link to="/" className="link">
+            <h1 className="logo">Filmbox</h1>
+          </Link>
+        </div>
         <nav className="nav">
           <ul className="nav-list">
             <li className="nav-item">
