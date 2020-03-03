@@ -36,7 +36,7 @@ button {
 
 .header-content {
   transform: translateY(0);
-  padding: 2em 1em;
+  padding: 1.5em 1em;
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(4, 1fr);
@@ -55,10 +55,11 @@ button {
 
 .logo-container {
   grid-column: 1 / 2;
+  align-self: center;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 0;
 }
 
@@ -87,7 +88,7 @@ button {
   z-index: 100;
   background: none;
   border: none;
-  font-size: 2.7rem;
+  font-size: 2.3rem;
   color: #fff;
 }
 
@@ -97,25 +98,75 @@ button {
   font-family: 'Montserrat';
   border-radius: 25px;
   border-style: none;
+  outline: 0;
 }
 
 .search-input {
   background: white;
-  padding: 8px 40px;
+  padding: 8px 40px 8px 10px;
+  width: 150px;
+  font-size: 0.75rem;
+  margin: 0 1.5em 0 0;
 }
 
 .search-btn {
   position: absolute;
-  margin: 0 0 0 15em;
-  padding: 8px 20px;
+  margin: 0 0 0 8.5em;
+  padding: 8px 15px;
   background: #a62131;
   color: #fff;
 }
 
+@media(min-width: 450px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .search-input {
+    padding: 8px 80px 8px 10px;
+    width: 250px;
+    margin: 0;
+  }
+
+  .search-btn {
+    margin: 0 0 0 15em;
+    padding: 8px 20px;
+  }
+
+  .nav-toggler {
+    padding: 0.2em 0.25em 0 0;
+    font-size: 2.7rem;
+  }
+
+}
+
+@media (min-width: 600px) {
+
+  .logo {
+    font-size: 1.75rem;
+    margin: 0 1em 0 0;
+  }
+
+  .search-input {
+    padding: 12px 80px 12px 10px;
+    width: 300px;
+  }
+
+  .search-btn {
+    margin: 0 0 0 18.3em;
+    padding: 12px 22px;
+  }
+}
+
 @media (min-width: 700px) {
 
+  .logo {
+    font-size: 2rem;
+    margin: 0 2em 0 0;
+  }
+
   .header-content {
-    padding: 1.25em 4em;
+    padding: 1.25em 3em;
   }
 
   .nav-toggler {
@@ -126,6 +177,16 @@ button {
   .navigation-open {
     transform: translateY(0);
     transition: transform 500ms;
+  }
+
+  .search-input {
+    padding: 12px 80px 12px 10px;
+    width: 400px;
+  }
+
+  .search-btn {
+    margin: 0 0 0 25.8em;
+    padding: 12px 22px;
   }
 
 }
@@ -160,6 +221,12 @@ div hr {
   border : 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(195, 7, 63, 0.3), rgba(195, 7, 63, 0.8), rgba(195, 7, 63, 0.3));
+}
+
+@media (min-width: 700px) {
+  .main-content {
+    padding-top: 4.90em;
+  }
 }
 
 @media (min-width: 800px) {
