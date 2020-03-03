@@ -32,7 +32,7 @@ function FilmDetail() {
     fetch(`https://api.themoviedb.org/3/movie/${filmID}/credits?api_key=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
-      for(let i = 0; i < 10; i++) {
+      for(let i = 0; i < 7; i++) {
         setCast(prevCast => [...prevCast, data.cast[i]]);
       }
     })
