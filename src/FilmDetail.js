@@ -197,6 +197,7 @@ function FilmDetail() {
             >
               <h2 className="detail-header">Popular Reviews</h2>
             </ScrollAnimation>
+
             {reviewData.length > 0 ? reviews : <Review
               reviewer="No Reviews Yet!"
               content=""
