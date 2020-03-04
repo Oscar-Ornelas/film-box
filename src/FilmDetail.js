@@ -90,6 +90,34 @@ function FilmDetail() {
     setGalleryItems(items);
   }, [cast])
 
+  function starRating(vote) {
+
+    if(0 < vote && vote < 2) {
+      return (
+        <span><i className="fas fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i></span>
+      )
+    } else if(2 <= vote && vote < 4) {
+      return (
+        <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i></span>
+      )
+    } else if(4 <= vote && vote < 6) {
+      return (
+        <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="far fa-star"></i><i className="far fa-star"></i></span>
+      )
+    } else if(6 <= vote && vote < 8) {
+      return (
+        <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="far fa-star"></i></span>
+      )
+    } else if(vote >= 8) {
+      return (
+        <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>
+      )
+    }
+
+    console.log(vote);
+
+  }
+
   const onSlideChanged = (e) => setCurrentIndex(e.item);
 
   const slideNext = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex + 1);
@@ -104,24 +132,22 @@ function FilmDetail() {
       />
   ))
 
-  console.log(genres);
-
   return (
     <main>
       <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
         <SemipolarLoading/>
       </div>
 
-      <div className={`film-detail ${isLoading ? "hidden" : "visible"}`}>
+      <div className={`film-detail main-content ${isLoading ? "hidden" : "visible"}`}>
         <div className="film-detail-img"
         style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.93)), url(https://image.tmdb.org/t/p/w1280${film.backdrop_path})`}}>
           <p className="film-detail-back" onClick={() => history.replace(`/`)}><i className="fas fa-chevron-left"></i></p>
           <div className="film-detail-card">
             <div className="film-detail-card-info">
               <h2 className="film-detail-title">{film.title}</h2>
-              <p className="film-detail-rating">{film.vote_average} Rating</p>
-              <p>{genres[0]} {genres.length > 1 ? ` | ${genres[1]}` : ""}</p>
-              <p>{film.status}</p>
+              <p className="film-detail-rating">{film.vote_average} {starRating(film.vote_average)}</p>
+              <p className="film-detail-genres">{genres[0]} {genres.length > 1 ? ` | ${genres[1]}` : ""}</p>
+              <p className="film-detail-status">{film.status}</p>
             </div>
             <img className="film-detail-poster" src={`https://image.tmdb.org/t/p/w154${film.poster_path}`}/>
           </div>

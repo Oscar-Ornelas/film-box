@@ -379,8 +379,8 @@ div hr {
 
 /*Film Detail*/
 .film-detail {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .film-detail-back {
@@ -401,11 +401,34 @@ div hr {
 }
 
 .film-detail-card-info {
-  margin-left: 1.25em;
+  margin: 0 0 0 1.25em;
 }
 
 .film-detail-title {
   font-size: 1.75rem;
+  margin: 0;
+}
+
+span .fa-star {
+  margin: 0 0 0 0.25em;
+  color: rgba(195, 7, 63, 1);
+}
+
+span .fa-star:first-of-type {
+  margin: 0 0 0 0.5em;
+}
+
+.film-detail-status,
+.film-detail-genres {
+  opacity: 0.8;
+}
+
+.film-detail-genres {
+  font-size: 0.9rem;
+}
+
+.film-detail-status {
+  font-size: 0.9rem;
 }
 
 .film-detail-poster {
@@ -533,7 +556,7 @@ div hr {
   font-family: 'Montserrat';
   background: rgba(195, 7, 63, 0.3);
   font-size: 1rem;
-  margin: 3em 2em;
+  margin: 0 2em 2em;
   padding: 8px 30px;
   color: #fff;
   border: none;
