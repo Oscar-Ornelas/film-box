@@ -362,7 +362,6 @@ div hr {
 .carousel-header,
 .detail-header {
   font-size: 1.5rem;
-  padding-left: 0.6em;
   letter-spacing: 5px;
   margin: 0;
 }
@@ -583,6 +582,7 @@ span .fa-star:first-of-type {
   color: #fff;
   border: none;
   border-radius: 8px;
+  min-width: 130px;
   max-width: 140px;
   transform: scale(1);
   transition: transform 250ms;
