@@ -21,7 +21,7 @@ function ImageCarousel(props) {
         return (
           <Link to={`/detail/${props.type}/${item.id}`} className="link">
             <div className="image-carousel-item">
-              <div className="inner-carousel" style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.73)),
+              <div className="inner-carousel" style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.73)),
                                                                         url(https://image.tmdb.org/t/p/w1280${item.backdrop_path})`}}>
                 <h3 className="image-carousel-category">Latest</h3>
                 <h2 className="image-carousel-title">{item.title}</h2>

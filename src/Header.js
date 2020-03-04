@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 
 function Header() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [search, setSearch] = useState("");
   const [navSlide, setNavSlide] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
 
   function handleChange(e) {
@@ -21,8 +22,14 @@ function Header() {
     window.location.reload();
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+  }, [])
+
   return (
-    <header style={{zIndex: navSlide ? `101` : `99`}} className="header">
+    <header style={{zIndex: navSlide ? `101` : `99`}} className={`header ${isLoading ? "hidden" : "visible"}`}>
       <div className="nav-toggler-container">
         <button onClick={toggleNavSlide} className="nav-toggler">&#9776;</button>
       </div>
