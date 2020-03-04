@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/film-box/static/css/main.cac54ece.chunk.css",
-    "main.js": "/film-box/static/js/main.778a55de.chunk.js",
-    "main.js.map": "/film-box/static/js/main.778a55de.chunk.js.map",
+    "main.css": "/film-box/static/css/main.54100399.chunk.css",
+    "main.js": "/film-box/static/js/main.d1112613.chunk.js",
+    "main.js.map": "/film-box/static/js/main.d1112613.chunk.js.map",
     "runtime-main.js": "/film-box/static/js/runtime-main.757f5bab.js",
     "runtime-main.js.map": "/film-box/static/js/runtime-main.757f5bab.js.map",
     "static/css/2.c2d4b67f.chunk.css": "/film-box/static/css/2.c2d4b67f.chunk.css",
     "static/js/2.1fdcbd3a.chunk.js": "/film-box/static/js/2.1fdcbd3a.chunk.js",
     "static/js/2.1fdcbd3a.chunk.js.map": "/film-box/static/js/2.1fdcbd3a.chunk.js.map",
     "index.html": "/film-box/index.html",
-    "precache-manifest.640bf86bb7f4e7df72e5113a7e3949fd.js": "/film-box/precache-manifest.640bf86bb7f4e7df72e5113a7e3949fd.js",
+    "precache-manifest.7de2ef2745bee0731b96e08bc20466e7.js": "/film-box/precache-manifest.7de2ef2745bee0731b96e08bc20466e7.js",
     "service-worker.js": "/film-box/service-worker.js",
     "static/css/2.c2d4b67f.chunk.css.map": "/film-box/static/css/2.c2d4b67f.chunk.css.map",
-    "static/css/main.cac54ece.chunk.css.map": "/film-box/static/css/main.cac54ece.chunk.css.map",
+    "static/css/main.54100399.chunk.css.map": "/film-box/static/css/main.54100399.chunk.css.map",
     "static/js/2.1fdcbd3a.chunk.js.LICENSE.txt": "/film-box/static/js/2.1fdcbd3a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.757f5bab.js",
     "static/css/2.c2d4b67f.chunk.css",
     "static/js/2.1fdcbd3a.chunk.js",
-    "static/css/main.cac54ece.chunk.css",
-    "static/js/main.778a55de.chunk.js"
+    "static/css/main.54100399.chunk.css",
+    "static/js/main.d1112613.chunk.js"
   ]
 }
