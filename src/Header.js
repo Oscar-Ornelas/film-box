@@ -22,7 +22,7 @@ function Header() {
   }
 
   return (
-    <header className="header">
+    <header style={{zIndex: navSlide ? `101` : `99`}} className="header">
       <div className="nav-toggler-container">
         <button onClick={toggleNavSlide} className="nav-toggler">&#9776;</button>
       </div>

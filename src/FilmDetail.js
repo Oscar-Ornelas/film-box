@@ -113,9 +113,6 @@ function FilmDetail() {
         <span><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>
       )
     }
-
-    console.log(vote);
-
   }
 
   const onSlideChanged = (e) => setCurrentIndex(e.item);
