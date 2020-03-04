@@ -31,7 +31,7 @@ function Header() {
   return (
     <header style={{zIndex: navSlide ? `101` : `99`}} className={`header ${isLoading ? "hidden" : "visible"}`}>
       <div className="nav-toggler-container">
-        <button onClick={toggleNavSlide} className="nav-toggler">&#9776;</button>
+        <button onClick={toggleNavSlide} className="nav-toggler"><i class="fas fa-bars"></i></button>
       </div>
       <div className={`header-content ${navSlide ? "navigation-open" : "navigation-close"}`}>
         <div className="logo-container">
