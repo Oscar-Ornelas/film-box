@@ -277,7 +277,7 @@ div hr {
 @media (min-width: 750px) {
   .inner-carousel,
   .film-detail-img {
-    min-height: 100vh;
+    min-height: 87vh;
     padding: 0 0 5em 5em;
   }
 }
