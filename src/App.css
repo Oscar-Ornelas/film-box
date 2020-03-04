@@ -565,7 +565,7 @@ span .fa-star:first-of-type {
 .search-item-poster {
   height: 225px;
   width: 150px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .switch-page-btns {

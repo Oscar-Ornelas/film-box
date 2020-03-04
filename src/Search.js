@@ -46,7 +46,7 @@ function Search() {
         <div className="search-item-content">
           <p className="search-item-title">{film.title}</p>
         </div>
-        <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} className="search-item-poster"></img>
+        <img src={`https://image.tmdb.org/t/p/w185${film.poster_path}`} className="search-item-poster"></img>
       </div>
     )
   )

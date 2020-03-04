@@ -32,7 +32,7 @@ function FilmCardContainer(props) {
           id={film.id}
           genres={film.genres}
           rating={film.vote_average}
-          posterUrl={`https://image.tmdb.org/t/p/w342${film.poster_path}`}
+          posterUrl={`https://image.tmdb.org/t/p/w185${film.poster_path}`}
         />
       )
     }));
