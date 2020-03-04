@@ -6,6 +6,7 @@ function Search() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [searchFilms, setSearchFilms] = useState([]);
   const [filmList, setFilmList] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const {search} = useParams();
@@ -43,13 +44,14 @@ function Search() {
   }
 
   const films = searchFilms.map(film => (
-    <div onClick={() => changeRoute(film.id)} className="search-item">
-      <div className="search-item-content">
-        <p className="search-item-title">{film.title}</p>
+      <div key={film.id} onClick={() => changeRoute(film.id)} className="search-item">
+        <div className="search-item-content">
+          <p className="search-item-title">{film.title}</p>
+        </div>
+        <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} className="search-item-poster"></img>
       </div>
-      <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} className="search-item-poster"></img>
-    </div>
-  ))
+    )
+  )
 
   function changeRoute(id) {
     history.replace(`/detail/movie/${id}`);

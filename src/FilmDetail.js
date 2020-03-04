@@ -9,6 +9,7 @@ import Review from './Review';
 function FilmDetail() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [film, setFilm] = useState({});
+  const [genres, setGenres] = useState([]);
   const [cast, setCast] = useState([]);
   const [reviewData, setReviewData] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -41,7 +42,12 @@ function FilmDetail() {
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${filmID}?api_key=${API_KEY}&language=en-US`)
     .then(response => response.json())
-    .then(data => setFilm(data))
+    .then(data => {
+      setFilm(data);
+      setGenres(prevGenres => (
+        data.genres.map(genre => genre.name)
+      ));
+    })
   }, [])
 
   useEffect(() => {
@@ -98,6 +104,8 @@ function FilmDetail() {
       />
   ))
 
+  console.log(genres);
+
   return (
     <main>
       <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
@@ -112,6 +120,7 @@ function FilmDetail() {
             <div className="film-detail-card-info">
               <h2 className="film-detail-title">{film.title}</h2>
               <p className="film-detail-rating">{film.vote_average} Rating</p>
+              <p>{genres[0]} {genres.length > 1 ? ` | ${genres[1]}` : ""}</p>
               <p>{film.status}</p>
             </div>
             <img className="film-detail-poster" src={`https://image.tmdb.org/t/p/w154${film.poster_path}`}/>
