@@ -156,6 +156,7 @@ function FilmDetail() {
             <ScrollAnimation
             animateIn="slideInLeft"
             animateOnce={true}
+            offSet="300"
             >
               <h2 className="detail-header">Overview</h2>
             </ScrollAnimation>
@@ -166,6 +167,7 @@ function FilmDetail() {
             <ScrollAnimation
             animateIn="slideInLeft"
             animateOnce={true}
+            offSet="300"
             animatePreScroll={false}
             >
               <h2 className="detail-header">Cast</h2>
@@ -194,6 +196,7 @@ function FilmDetail() {
             animateIn="slideInLeft"
             animateOnce={true}
             animatePreScroll={false}
+            offSet="300"
             >
               <h2 className="detail-header">Popular Reviews</h2>
             </ScrollAnimation>

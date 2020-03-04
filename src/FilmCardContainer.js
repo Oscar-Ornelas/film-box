@@ -51,6 +51,7 @@ function FilmCardContainer(props) {
       <ScrollAnimation
       animateIn="slideInLeft"
       animateOnce={animate}
+      offSet="300"
       afterAnimatedIn={(v) => (
         setAnimate(true)
       )}

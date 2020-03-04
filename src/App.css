@@ -384,7 +384,7 @@ div hr {
   border: none;
   font-size: 2rem;
   margin: 0 0.5em -14.5em;
-  z-index: 99;
+  z-index: 98;
 }
 
 .carousel-btn:focus {
@@ -493,6 +493,10 @@ span .fa-star:first-of-type {
   margin: 2em 0 3em 0;
 }
 
+.review:last-of-type {
+  margin: 1.5em 0;
+}
+
 .review:nth-child(odd) {
   border-right: 0;
   border-left: 6px solid #fff;
@@ -520,6 +524,12 @@ span .fa-star:first-of-type {
   padding-right: 0.5em;
   transition: all 0.8s ease;
 
+}
+
+@media (min-width: 700px) {
+  .film-detail-back {
+    z-index: 98;
+  }
 }
 
 /* Search */
