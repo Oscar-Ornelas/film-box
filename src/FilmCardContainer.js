@@ -10,10 +10,13 @@ function FilmCardContainer(props) {
   const [responsive, setResponsive] = useState(
     {
       0: {items: 2},
-      450: {items: 3},
-      650: {items: 4},
-      900: {items: 6},
-      1200: { items: 7 }
+      495: {items: 3},
+      700: {items: 4},
+      1000: {items: 5},
+      1200: { items: 6 },
+      1500: {items: 8},
+      1600: {items: 9},
+      1800: {items: 10}
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
@@ -29,7 +32,7 @@ function FilmCardContainer(props) {
           id={film.id}
           genres={film.genres}
           rating={film.vote_average}
-          posterUrl={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
+          posterUrl={`https://image.tmdb.org/t/p/w342${film.poster_path}`}
         />
       )
     }));
