@@ -47,35 +47,36 @@ function FilmCardContainer(props) {
   const slidePrev = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1);
 
   return (
-    <div className="film-card-container">
-      <ScrollAnimation
-      animateIn="slideInLeft"
-      animateOnce={animate}
-      offSet="300"
-      afterAnimatedIn={(v) => (
-        setAnimate(true)
-      )}
-      >
+    <ScrollAnimation
+    animateIn="fadeIn"
+    animateOnce={animate}
+    offSet="300"
+    duration="3"
+    afterAnimatedIn={(v) => (
+      setAnimate(true)
+    )}
+    >
+      <div className="film-card-container">
         <h2 className="carousel-header">{props.header}</h2>
-      </ScrollAnimation>
 
-      <div className="carousel-inner">
-        <AliceCarousel
-          dotsDisabled={true}
-          buttonsDisabled={true}
-          items={galleryItems}
-          responsive={responsive}
-          slideToIndex={currentIndex}
-          onSlideChanged={onSlideChanged}
-          swipeDisabled={true}
-        />
-      </div>
+        <div className="carousel-inner">
+          <AliceCarousel
+            dotsDisabled={true}
+            buttonsDisabled={true}
+            items={galleryItems}
+            responsive={responsive}
+            slideToIndex={currentIndex}
+            onSlideChanged={onSlideChanged}
+            swipeDisabled={true}
+          />
+        </div>
 
-      <div className="carousel-btns">
-        <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i className="fas fa-chevron-left"></i></button>
-        <button className="carousel-btn next-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
+        <div className="carousel-btns">
+          <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i className="fas fa-chevron-left"></i></button>
+          <button className="carousel-btn next-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
+        </div>
       </div>
-    </div>
+    </ScrollAnimation>
   )
 }
 export default FilmCardContainer;

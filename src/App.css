@@ -342,6 +342,7 @@ div hr {
 .film-card-poster {
   height: 235px;
   width: 155px;
+  border-radius: 8px;
 }
 
 .film-card-rating {
@@ -361,7 +362,7 @@ div hr {
 
 .carousel-header,
 .detail-header {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   letter-spacing: 5px;
   margin: 0;
 }
@@ -539,11 +540,12 @@ span .fa-star:first-of-type {
 
 .search-header {
   text-align: center;
-  font-size: 1.75em;
+  font-size: 1.5em;
   padding: 3em 0 0 0;
   margin: 0.5em 0 2em 0;
   letter-spacing: 3px;
   line-height: 1.6;
+  text-transform: uppercase;
 }
 
 .search-header::after {

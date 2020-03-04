@@ -27,11 +27,11 @@ function Home() {
       <div className={`main-content ${isLoading ? "hidden" : "visible"}`}>
         <ImageCarousel type="movie"/>
         <div className="container">
+          <FilmCardContainer header="Now Playing" filmList={nowPlaying}/>
+          <div><hr/></div>
           <FilmCardContainer header="Popular" filmList={popular}/>
           <div><hr/></div>
           <FilmCardContainer header="Upcoming" filmList={upcoming}/>
-          <div><hr/></div>
-          <FilmCardContainer header="Now Playing" filmList={nowPlaying}/>
           <div><hr/></div>
           <FilmCardContainer header="Top Rated" filmList={topRated}/>
         </div>
