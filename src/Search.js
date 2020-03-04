@@ -5,8 +5,6 @@ import {SemipolarLoading} from 'react-loadingg';
 function Search() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [searchFilms, setSearchFilms] = useState([]);
-  const [filmList, setFilmList] = useState([]);
-  const [genres, setGenres] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const {search} = useParams();
