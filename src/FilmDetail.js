@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import {SemipolarLoading} from 'react-loadingg';
 import AliceCarousel from 'react-alice-carousel';
+import ScrollAnimation from 'react-animate-on-scroll';
 import FilmCard from './FilmCard';
 import FilmCardContainer from './FilmCardContainer';
 import Review from './Review';
@@ -152,13 +153,23 @@ function FilmDetail() {
 
         <div className="main-content container">
           <section className="overview">
-            <h2 className="detail-header">Overview</h2>
+            <ScrollAnimation
+            animateIn="slideInLeft"
+            animateOnce={true}
+            >
+              <h2 className="detail-header">Overview</h2>
+            </ScrollAnimation>
             <p>{film.overview}</p>
           </section>
 
           <section className="cast">
-            <h2 className="detail-header">Cast</h2>
-
+            <ScrollAnimation
+            animateIn="slideInLeft"
+            animateOnce={true}
+            animatePreScroll={false}
+            >
+              <h2 className="detail-header">Cast</h2>
+            </ScrollAnimation>
             <div className="carousel-inner">
               <AliceCarousel
                 dotsDisabled={true}
@@ -179,7 +190,13 @@ function FilmDetail() {
           </section>
 
           <section>
-            <h2 className="detail-header">Popular Reviews</h2>
+            <ScrollAnimation
+            animateIn="slideInLeft"
+            animateOnce={true}
+            animatePreScroll={false}
+            >
+              <h2 className="detail-header">Popular Reviews</h2>
+            </ScrollAnimation>
             {reviewData.length > 0 ? reviews : <Review
               reviewer="No Reviews Yet!"
               content=""

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import FilmCard from './FilmCard';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 function FilmCardContainer(props) {
   let items = [];
@@ -16,6 +17,7 @@ function FilmCardContainer(props) {
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
+  const [animate, setAnimate] = useState(false);
 
 
   useEffect(()=> {
@@ -43,7 +45,15 @@ function FilmCardContainer(props) {
 
   return (
     <div className="film-card-container">
-      <h2 className="carousel-header">{props.header}</h2>
+      <ScrollAnimation
+      animateIn="slideInLeft"
+      animateOnce={animate}
+      afterAnimatedIn={(v) => (
+        setAnimate(true)
+      )}
+      >
+        <h2 className="carousel-header">{props.header}</h2>
+      </ScrollAnimation>
 
       <div className="carousel-inner">
         <AliceCarousel

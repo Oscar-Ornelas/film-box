@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 function Header() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
