@@ -49,9 +49,10 @@ function FilmCardContainer(props) {
   return (
     <ScrollAnimation
     animateIn="fadeIn"
-    animateOnce={animate}
-    offSet="300"
-    duration="3"
+    animateOnce={true}
+    animatePreScroll={false}
+    offSet="50"
+    duration="2"
     afterAnimatedIn={(v) => (
       setAnimate(true)
     )}
