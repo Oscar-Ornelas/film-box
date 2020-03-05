@@ -91,6 +91,13 @@ function FilmDetail() {
     setGalleryItems(items);
   }, [cast])
 
+  function goBackwards() {
+    history.goBack();
+    setTimeout(() => {
+      window.location.reload();
+    }, 10);
+  }
+
   function starRating(vote) {
 
     if(0 < vote && vote < 2) {
@@ -139,7 +146,7 @@ function FilmDetail() {
       <div className={`film-detail main-content ${isLoading ? "hidden" : "visible"}`}>
         <div className="film-detail-img"
         style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.93)), url(https://image.tmdb.org/t/p/w1280${film.backdrop_path})`}}>
-          <p className="film-detail-back" onClick={() => history.replace(`/`)}><i className="fas fa-chevron-left"></i></p>
+          <p className="film-detail-back" onClick={goBackwards}><i className="fas fa-chevron-left"></i></p>
           <div className="film-detail-card">
             <div className="film-detail-card-info">
               <h2 className="film-detail-title">{film.title}</h2>

@@ -33,6 +33,11 @@ function Search() {
     });
   }, [page]);
 
+  function changeRoute(id) {
+    history.push(`/detail/movie/${id}`);
+    window.location.reload();
+  }
+
   function increment() {
     setPage(prevPage => prevPage + 1);
   }
@@ -50,11 +55,6 @@ function Search() {
       </div>
     )
   )
-
-  function changeRoute(id) {
-    history.replace(`/detail/movie/${id}`);
-    window.location.reload();
-  }
 
   return (
     <>

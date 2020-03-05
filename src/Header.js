@@ -19,7 +19,7 @@ function Header() {
   }
 
   function changeRoute() {
-    history.replace(`/search/${search}`);
+    history.push(`/search/${search}`);
     window.location.reload();
   }
 
