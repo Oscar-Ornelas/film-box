@@ -5,21 +5,23 @@ import apiLogo from './imgs/apiLogo.png';
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-nav">
-        <h1 className="logo footer-logo">Filmbox</h1>
-        <div className="footer-nav-content">
-          <ul className="footer-nav-list">
-            <li className="footer-nav-item" onClick={() => window.scrollTo(0, 0)}>Home</li>
-            <Link className="link" to="/"><li className="footer-nav-item">Discover</li></Link>
-          </ul>
+      <div className="footer-main">
+        <div className="footer-nav">
+          <h1 className="logo footer-logo">Filmbox</h1>
+          <div className="footer-nav-content">
+            <ul className="footer-nav-list">
+              <li className="footer-nav-item" onClick={() => window.scrollTo(0, 0)}>Home</li>
+              <Link className="link" to="/"><li className="footer-nav-item">Discover</li></Link>
+            </ul>
+          </div>
+        </div>
+
+        <div className="footer-info">
+          <p className="footer-info-item">Portfolio: <a className="footer-info-link"target="_blank" rel="noopener noreferrer" href="https://oscar-ornelas.github.io/portfolio-app">oscar-ornelas.github.io/portfolio-app</a></p>
+          <p className="footer-info-item">Phone: <span>512-831-8142</span></p>
         </div>
       </div>
-
-      <div className="footer-info">
-        <p className="footer-info-item">Portfolio: <a className="footer-info-link"target="_blank" rel="noopener noreferrer" href="https://oscar-ornelas.github.io/portfolio-app">oscar-ornelas.github.io/portfolio-app</a></p>
-        <p className="footer-info-item">Phone: <span>512-831-8142</span></p>
-      </div>
-
+    
       <div className="api-info">
         <img className="api-logo" src={apiLogo}/>
 
