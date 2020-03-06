@@ -52,7 +52,7 @@ function FilmCardContainer(props) {
     animateOnce={true}
     animatePreScroll={false}
     offSet="50"
-    duration="2"
+    duration={2}
     afterAnimatedIn={(v) => (
       setAnimate(true)
     )}

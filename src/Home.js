@@ -3,6 +3,7 @@ import useDataCall from './useDataCall';
 import {SemipolarLoading} from 'react-loadingg';
 import ImageCarousel from './ImageCarousel';
 import FilmCardContainer from './FilmCardContainer';
+import Footer from './Footer';
 
 function Home() {
   const popular = useDataCall("popular");
@@ -18,26 +19,30 @@ function Home() {
   }, [])
 
   return (
-    <main>
+    <>
+      <main>
 
-      <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
-        <SemipolarLoading/>
-      </div>
-
-      <div className={`main-content ${isLoading ? "hidden" : "visible"}`}>
-        <ImageCarousel type="movie"/>
-        <div className="container">
-          <FilmCardContainer header="Now Playing" filmList={nowPlaying}/>
-          <div><hr/></div>
-          <FilmCardContainer header="Popular" filmList={popular}/>
-          <div><hr/></div>
-          <FilmCardContainer header="Upcoming" filmList={upcoming}/>
-          <div><hr/></div>
-          <FilmCardContainer header="Top Rated" filmList={topRated}/>
+        <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
+          <SemipolarLoading/>
         </div>
-      </div>
 
-    </main>
+        <div className={`main-content ${isLoading ? "hidden" : "visible"}`}>
+          <ImageCarousel type="movie"/>
+          <div className="container">
+            <FilmCardContainer header="Now Playing" filmList={nowPlaying}/>
+            <div><hr/></div>
+            <FilmCardContainer header="Popular" filmList={popular}/>
+            <div><hr/></div>
+            <FilmCardContainer header="Upcoming" filmList={upcoming}/>
+            <div><hr/></div>
+            <FilmCardContainer header="Top Rated" filmList={topRated}/>
+          </div>
+          <Footer/>
+        </div>
+
+      </main>
+
+    </>
   )
 
 

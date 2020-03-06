@@ -116,6 +116,7 @@ button {
   padding: 8px 15px;
   background: #a62131;
   color: #fff;
+  cursor: pointer;
 }
 
 @media(min-width: 425px) {
@@ -243,6 +244,76 @@ div hr {
   .container {
     padding: 0 7em;
   }
+}
+
+/*Footer*/
+.footer {
+  background: #2b2b2b;
+  padding: 2em;
+  margin: 2em 0 0 0;
+}
+
+.footer-nav-list {
+  margin: 1.25em 0 0 0;
+}
+
+.footer-nav-list,
+.api-contact-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.footer-nav-item {
+  margin: 0 0.5em 0 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.footer-info {
+  margin: 3em 0 0 0;
+}
+
+.footer-info-link {
+  text-decoration: none;
+  margin: 0 0 0 0.8em;
+}
+
+.footer-info-link,
+.footer-info-link:visited,
+.api-contact-link,
+.api-contact-link:visited {
+  color: inherit;
+}
+
+.footer-info-item span {
+  margin: 0 0 0 0.8em;
+}
+
+.api-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 4em 0 0 0;
+}
+
+.api-logo {
+  width: 90px;
+  height: 90px;
+}
+
+.api-contact {
+  align-self: flex-end;
+}
+
+.api-contact-list {
+  margin: 1em 0 0 0;
+}
+
+.api-contact-item {
+  font-size: 1.5rem;
+  margin: 0 1em 0 0;
 }
 
 /*Image Carousel*/
