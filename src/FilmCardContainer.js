@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import FilmCard from './FilmCard';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 function FilmCardContainer(props) {
   let items = [];
@@ -20,8 +19,6 @@ function FilmCardContainer(props) {
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
-  const [animate, setAnimate] = useState(false);
-
 
   useEffect(()=> {
     setGalleryItems(props.filmList.map(film => {
@@ -47,16 +44,6 @@ function FilmCardContainer(props) {
   const slidePrev = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1);
 
   return (
-    <ScrollAnimation
-    animateIn="fadeIn"
-    animateOnce={true}
-    animatePreScroll={false}
-    offSet="50"
-    duration={2}
-    afterAnimatedIn={(v) => (
-      setAnimate(true)
-    )}
-    >
       <div className="film-card-container">
         <h2 className="carousel-header">{props.header}</h2>
 
@@ -77,7 +64,7 @@ function FilmCardContainer(props) {
           <button className="carousel-btn next-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
         </div>
       </div>
-    </ScrollAnimation>
+
   )
 }
 export default FilmCardContainer;

@@ -119,6 +119,36 @@ button {
   cursor: pointer;
 }
 
+.header-lower {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 100%;
+}
+
+.header-content-lower {
+  background: #45264b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7em 0;
+}
+
+.discover-link {
+  font-size: 2.7rem;
+  cursor: pointer;
+}
+
+.navigation-open-lower {
+  transform: translateY(-100%);
+  transition: transform 500ms;
+}
+
+.navigation-close-lower {
+  transform: translateY(0);
+  transition: transform 500ms;
+}
+
 @media(min-width: 425px) {
   .logo {
     font-size: 1.5rem;
