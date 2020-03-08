@@ -164,6 +164,7 @@ function FilmDetail() {
             animateIn="slideInLeft"
             animateOnce={true}
             offSet="300"
+            duration={0.5}
             >
               <h2 className="detail-header">Overview</h2>
             </ScrollAnimation>

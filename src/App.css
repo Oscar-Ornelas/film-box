@@ -762,7 +762,7 @@ span .fa-star:first-of-type {
 }
 
 .discover-input {
-  padding: 10px 0 10px 5px;
+  padding: 12px;
   background: rgba(195, 7, 63, 0.3);
   border-radius: 8px;
   font-size: 0.9rem;
