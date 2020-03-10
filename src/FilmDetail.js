@@ -6,6 +6,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import FilmCard from './FilmCard';
 import FilmCardContainer from './FilmCardContainer';
 import Review from './Review';
+import portraitPlaceholder from './imgs/portraitPlaceholder.png';
 
 function FilmDetail() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
@@ -82,12 +83,25 @@ function FilmDetail() {
   }, [])
 
   useEffect(() => {
-    items = cast.map(person => (
-      <div className="film-detail-cast-item">
-        <p className="film-detail-cast-name">{person.name}</p>
-        <img className="film-detail-cast-img" src={`https://image.tmdb.org/t/p/w185${person.profile_path}`}/>
-      </div>
-    ))
+    items = cast.map(person => {
+      if(person !== undefined) {
+        if(person.profile_path === null) {
+          return (
+            <div className="film-detail-cast-item">
+              <p className="film-detail-cast-name">{person.name}</p>
+              <img className="film-detail-cast-img" src={portraitPlaceholder}/>
+            </div>
+          )
+        } else {
+          return (
+            <div className="film-detail-cast-item">
+              <p className="film-detail-cast-name">{person.name}</p>
+              <img className="film-detail-cast-img" src={`https://image.tmdb.org/t/p/w185${person.profile_path}`}/>
+            </div>
+          )
+        }
+      }
+    })
     setGalleryItems(items);
   }, [cast])
 
