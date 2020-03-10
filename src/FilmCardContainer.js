@@ -19,15 +19,19 @@ function FilmCardContainer(props) {
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
+  const [genres, setGenres] = useState([]);
 
   useEffect(()=> {
     setGalleryItems(props.filmList.map(film => {
+      setGenres(prevGenres => (
+        film.genres.map(genre => genre.name)
+      ));
       return (
         <FilmCard
           key={film.id}
           title={film.title}
           id={film.id}
-          genres={film.genres}
+          genres={genres}
           rating={film.vote_average}
           posterUrl={`https://image.tmdb.org/t/p/w185${film.poster_path}`}
         />

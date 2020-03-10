@@ -49,6 +49,9 @@ function Header(props) {
             </li>
           </ul>
         </nav>
+        <div className="header-discover">
+          <Link to="/discover" className="link"><a className="discover-link"><i className="fas fa-map-marker-alt"></i></a></Link>
+        </div>
       </div>
     </header>
   )

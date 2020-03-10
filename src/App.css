@@ -65,6 +65,7 @@ button {
 .nav {
   grid-column: 2 / 4;
   justify-self: center;
+  align-self: center;
 }
 
 .nav-list {
@@ -132,6 +133,10 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0.7em 0;
+}
+
+.header-discover {
+  display: none;
 }
 
 .discover-link {
@@ -224,6 +229,13 @@ button {
   .search-btn {
     margin: 0 0 0 25.8em;
     padding: 12px 22px;
+  }
+
+  .header-discover {
+    display: block;
+    grid-column: 4;
+    justify-self: end;
+    margin-left: 7em;
   }
 
 }
@@ -800,6 +812,10 @@ span .fa-star:first-of-type {
 }
 
 @media (min-width: 700px) {
+  .header-lower {
+    display: none;
+  }
+
   .discover-input:nth-of-type(2) {
     margin: 0 3em;
   }
