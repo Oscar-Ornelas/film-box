@@ -470,6 +470,7 @@ div hr {
 .film-card-poster,
 .film-detail-poster,
 .film-detail-cast-img,
+.popular-role-poster,
 .search-item-poster {
   order: -1;
   height: 205px;
@@ -603,6 +604,11 @@ span .fa-star:first-of-type {
 .film-detail-cast-item {
   display: flex;
   flex-direction: column;
+  opacity: 0.85;
+}
+
+.film-detail-cast-item:hover {
+  opacity: 1;
 }
 
 .film-detail-cast-item {
@@ -627,6 +633,7 @@ span .fa-star:first-of-type {
   margin: 3em 0;
   border-right: 6px solid #fff;
   max-width: 1000px;
+  line-height: 1.8;
 }
 
 .review:first-of-type {
@@ -648,7 +655,7 @@ span .fa-star:first-of-type {
 
 .overview,
 .review-content {
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .review-link {
@@ -671,6 +678,26 @@ span .fa-star:first-of-type {
     z-index: 98;
   }
 }
+
+/* Person Detail */
+.popular-role-info {
+  display: flex;
+  align-items: center;
+}
+
+.popular-role-title,
+.popular-role-character {
+  margin: 0;
+}
+
+.popular-role-title {
+  margin: 0 0 0.5em 0;
+}
+
+.popular-role-poster {
+  margin: 0 2em 2em 0;
+}
+
 
 /* Search */
 .search-grid {

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {useParams, useHistory} from 'react-router-dom';
+import {Link, useParams, useHistory} from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 import {BackgroundContext} from "./backgroundContext";
 
@@ -32,16 +32,19 @@ function PersonDetail(props) {
   }
 
   const films = filmList.map(film => (
-    <div className="popular-roles">
-      <div className="popular-role-info">
-        <h3 className="popular-role-title">{film.title}</h3>
-        <p className="popular-role-character">{film.character}</p>
-        <div>
+    <Link to={`/detail/movie/${film.id}`} className="link">
+      <div className="popular-roles">
+        <div className="popular-role-info">
+          <div>
+            <h3 className="popular-role-title">{film.title}</h3>
+            <p className="popular-role-character">{film.character}</p>
+          </div>
           <img className="popular-role-poster" src={`https://image.tmdb.org/t/p/w185${film.poster_path}`}/>
         </div>
+        <p className="popular-role-overview">{film.overview.length > 300 ? `${film.overview.slice(0, 300)}...` : film.overview}</p>
       </div>
-      <p className="popular-role-overview">{film.overview.length > 300 ? `${film.overview.slice(0, 300)}...` : film.overview}</p>
-    </div>
+    </Link>
+
   ))
 
   return (
