@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {React, useState, useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 
 function useSearch() {
@@ -19,7 +19,7 @@ function useSearch() {
     setPage(prevPage => prevPage - 1);
   }
 
-  return {searchFilms, setSearchFilms, increment, decrement, changeRoute, page};
+  return {searchFilms, setSearchFilms, increment, decrement, changeRoute, page, films};
 }
 
 export default useSearch;

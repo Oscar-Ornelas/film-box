@@ -21,6 +21,7 @@ function FilmDetail() {
   const {filmID} = useParams();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
+
   let items = [];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [responsive, setResponsive] = useState(
@@ -33,6 +34,12 @@ function FilmDetail() {
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+  }, [])
 
   useEffect(()=> {
     fetch(`https://api.themoviedb.org/3/movie/${filmID}/credits?api_key=${API_KEY}`)
@@ -78,12 +85,6 @@ function FilmDetail() {
         .then(data => setSimilarMovies(prevSimilarMovies => [...prevSimilarMovies, data]))
       ))
     })
-  }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
   }, [])
 
   useEffect(() => {
