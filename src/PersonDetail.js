@@ -39,7 +39,7 @@ function PersonDetail(props) {
             <h3 className="popular-role-title">{film.title}</h3>
             <p className="popular-role-character">{film.character}</p>
           </div>
-          <img className="popular-role-poster" src={`https://image.tmdb.org/t/p/w185${film.poster_path}`}/>
+          <img className="popular-role-poster" alt={film.poster_path === null ? "No Image Found" : ""} src={`https://image.tmdb.org/t/p/w185${film.poster_path}`}/>
         </div>
         <p className="popular-role-overview">{film.overview.length > 300 ? `${film.overview.slice(0, 300)}...` : film.overview}</p>
       </div>
