@@ -1,14 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {useHistory} from 'react-router-dom';
 import {SemipolarLoading} from 'react-loadingg';
+import useSearch from './useSearch';
 
 function Discover() {
   const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
   const [isLoading, setIsLoading] = useState(true);
-  const [discoverFilms, setDiscoverFilms] = useState([]);
-  const [page, setPage] = useState(1);
   const [formData, setFormData] = useState({year: "", voteAverage: "", sortBy: "popularity.desc", genres: ""});
-  const history = useHistory();
+  const {
+    searchFilms,
+    setSearchFilms,
+    increment,
+    decrement,
+    changeRoute,
+    page
+  } = useSearch();
+
+  useEffect(() => {
+    dataCall();
+  }, [page]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -16,21 +25,17 @@ function Discover() {
     }, 1500)
   }, [])
 
-  useEffect(() => {
-    dataCall();
-  }, [page])
-
   function dataCall() {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${formData.sortBy}&include_adult=false&include_video=false&page=${page}&primary_release_year=${formData.year}&vote_average.gte=${formData.voteAverage}`)
     .then(response => response.json())
     .then(data => {
-      setDiscoverFilms([])
+      setSearchFilms([])
       data.results.forEach(film => {
         fetch(`https://api.themoviedb.org/3/movie/${film.id}?api_key=${API_KEY}&language=en-US`)
         .then(response => response.json())
         .then(data => {
           if(film.poster_path !== null) {
-            setDiscoverFilms(prevDiscoverFilms => [...prevDiscoverFilms, film]);
+            setSearchFilms(prevSearchFilms => [...prevSearchFilms, film]);
           }
         })
       });
@@ -47,20 +52,7 @@ function Discover() {
     dataCall();
   }
 
-  function changeRoute(id) {
-    history.push(`/detail/movie/${id}`);
-    window.location.reload();
-  }
-
-  function increment() {
-    setPage(prevPage => prevPage + 1);
-  }
-
-  function decrement() {
-    setPage(prevPage => prevPage - 1);
-  }
-
-  const films = discoverFilms.map(film => (
+  const films = searchFilms.map(film => (
       <div key={film.id} onClick={() => changeRoute(film.id)} className="search-item">
         <div className="search-item-content">
           <p className="search-item-title">{film.title}</p>
