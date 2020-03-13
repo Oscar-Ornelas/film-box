@@ -618,7 +618,8 @@ span .fa-star:first-of-type {
   margin: 0 0.5em -12.5em;
 }
 
-.review {
+.review,
+.popular-roles {
   overflow: hidden;
   box-sizing: content-box;
   background: #2b2b2b;

@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {useParams, useHistory} from 'react-router-dom';
+import React, {useState, useEffect, useContext} from 'react';
+import {Link, Switch, Route, Redirect, useParams, useHistory} from 'react-router-dom';
 import {SemipolarLoading} from 'react-loadingg';
 import AliceCarousel from 'react-alice-carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
+import PersonDetail from './PersonDetail';
 import FilmCard from './FilmCard';
 import FilmCardContainer from './FilmCardContainer';
 import Review from './Review';
+import {BackgroundContext} from "./backgroundContext";
 import portraitPlaceholder from './imgs/portraitPlaceholder.png';
 
 function FilmDetail() {
@@ -15,6 +17,7 @@ function FilmDetail() {
   const [cast, setCast] = useState([]);
   const [reviewData, setReviewData] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
+  const {background, setBackground} = useContext(BackgroundContext);
   const {filmID} = useParams();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +49,7 @@ function FilmDetail() {
     .then(response => response.json())
     .then(data => {
       setFilm(data);
+      setBackground(`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`);
       setGenres(prevGenres => (
         data.genres.map(genre => genre.name)
       ));
@@ -87,17 +91,21 @@ function FilmDetail() {
       if(person !== undefined) {
         if(person.profile_path === null) {
           return (
-            <div className="film-detail-cast-item">
-              <p className="film-detail-cast-name">{person.name}</p>
-              <img className="film-detail-cast-img" src={portraitPlaceholder}/>
-            </div>
+            <Link class="link" to={`/detail/person/${person.id}`}>
+              <div className="film-detail-cast-item">
+                <p className="film-detail-cast-name">{person.name}</p>
+                <img className="film-detail-cast-img" src={portraitPlaceholder}/>
+              </div>
+            </Link>
           )
         } else {
           return (
-            <div className="film-detail-cast-item">
-              <p className="film-detail-cast-name">{person.name}</p>
-              <img className="film-detail-cast-img" src={`https://image.tmdb.org/t/p/w185${person.profile_path}`}/>
-            </div>
+            <Link class="link" to={`/detail/person/${person.id}`}>
+              <div className="film-detail-cast-item">
+                <p className="film-detail-cast-name">{person.name}</p>
+                <img className="film-detail-cast-img" src={`https://image.tmdb.org/t/p/w185${person.profile_path}`}/>
+              </div>
+            </Link>
           )
         }
       }
@@ -152,94 +160,95 @@ function FilmDetail() {
   ))
 
   return (
-    <main>
-      <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
-        <SemipolarLoading/>
-      </div>
+    <>
+      <main>
+        <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
+          <SemipolarLoading/>
+        </div>
 
-      <div className={`film-detail main-content ${isLoading ? "hidden" : "visible"}`}>
-        <div className="film-detail-img"
-        style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.93)), url(https://image.tmdb.org/t/p/w1280${film.backdrop_path})`}}>
-          <p className="film-detail-back" onClick={goBackwards}><i className="fas fa-chevron-left"></i></p>
-          <div className="film-detail-card">
-            <div className="film-detail-card-info">
-              <h2 className="film-detail-title">{film.title}</h2>
-              <p className="film-detail-rating">{film.vote_average} {starRating(film.vote_average)}</p>
-              <p className="film-detail-genres">{genres[0]} {genres.length > 1 ? ` | ${genres[1]}` : ""}</p>
-              <p className="film-detail-status">{film.status}</p>
+        <div className={`film-detail main-content ${isLoading ? "hidden" : "visible"}`}>
+          <div className="film-detail-img"
+          style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.93)), url(${background})`}}>
+            <p className="film-detail-back" onClick={goBackwards}><i className="fas fa-chevron-left"></i></p>
+            <div className="film-detail-card">
+              <div className="film-detail-card-info">
+                <h2 className="film-detail-title">{film.title}</h2>
+                <p className="film-detail-rating">{film.vote_average} {starRating(film.vote_average)}</p>
+                <p className="film-detail-genres">{genres[0]} {genres.length > 1 ? ` | ${genres[1]}` : ""}</p>
+                <p className="film-detail-status">{film.status}</p>
+              </div>
+              <img className="film-detail-poster" src={`https://image.tmdb.org/t/p/w154${film.poster_path}`}/>
             </div>
-            <img className="film-detail-poster" src={`https://image.tmdb.org/t/p/w154${film.poster_path}`}/>
           </div>
-        </div>
 
-        <div className="main-content container">
-          <section className="overview">
-            <ScrollAnimation
-            animateIn="slideInLeft"
-            animateOnce={true}
-            offSet="300"
-            duration={0.5}
-            >
-              <h2 className="detail-header">Overview</h2>
-            </ScrollAnimation>
-            <p>{film.overview}</p>
-          </section>
+          <div className="main-content container">
+            <section className="overview">
+              <ScrollAnimation
+              animateIn="slideInLeft"
+              animateOnce={true}
+              offSet="300"
+              duration={0.5}
+              >
+                <h2 className="detail-header">Overview</h2>
+              </ScrollAnimation>
+              <p>{film.overview}</p>
+            </section>
 
-          <section className="cast">
-            <ScrollAnimation
-            animateIn="slideInLeft"
-            animateOnce={true}
-            offSet="300"
-            animatePreScroll={false}
-            >
+            <section className="cast">
+              <ScrollAnimation
+              animateIn="slideInLeft"
+              animateOnce={true}
+              offSet="300"
+              animatePreScroll={false}
+              >
               <h2 className="detail-header">Cast</h2>
-            </ScrollAnimation>
-            <div className="carousel-inner">
-              <AliceCarousel
-                dotsDisabled={true}
-                buttonsDisabled={true}
-                items={galleryItems}
-                responsive={responsive}
-                slideToIndex={currentIndex}
-                onSlideChanged={onSlideChanged}
-                swipeDisabled={true}
-              />
-            </div>
+              </ScrollAnimation>
+              <div className="carousel-inner">
+                <AliceCarousel
+                  dotsDisabled={true}
+                  buttonsDisabled={true}
+                  items={galleryItems}
+                  responsive={responsive}
+                  slideToIndex={currentIndex}
+                  onSlideChanged={onSlideChanged}
+                  swipeDisabled={true}
+                />
+              </div>
 
-            <div className="carousel-btns">
-              <button className="carousel-btn prev-btn cast-btn" onClick={() => slidePrev()}><i className="fas fa-chevron-left"></i></button>
-              <button className="carousel-btn next-btn cast-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
-            </div>
+              <div className="carousel-btns">
+                <button className="carousel-btn prev-btn cast-btn" onClick={() => slidePrev()}><i className="fas fa-chevron-left"></i></button>
+                <button className="carousel-btn next-btn cast-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
+              </div>
 
-          </section>
+            </section>
 
-          <section>
-            <ScrollAnimation
-            animateIn="slideInLeft"
-            animateOnce={true}
-            animatePreScroll={false}
-            offSet="300"
-            >
-              <h2 className="detail-header">Popular Reviews</h2>
-            </ScrollAnimation>
+            <section>
+              <ScrollAnimation
+              animateIn="slideInLeft"
+              animateOnce={true}
+              animatePreScroll={false}
+              offSet="300"
+              >
+                <h2 className="detail-header">Popular Reviews</h2>
+              </ScrollAnimation>
 
-            {reviewData.length > 0 ? reviews : <Review
-              reviewer="No Reviews Yet!"
-              content=""
-              fullReviewSrc=""
-            />}
-          </section>
+              {reviewData.length > 0 ? reviews : <Review
+                reviewer="No Reviews Yet!"
+                content=""
+                fullReviewSrc=""
+              />}
+            </section>
 
-          <section>
-            <FilmCardContainer header="Similar Movies" filmList={similarMovies}/>
-          </section>
+            <section>
+              <FilmCardContainer header="Similar Movies" filmList={similarMovies}/>
+            </section>
+
+          </div>
+
 
         </div>
-
-
-      </div>
-    </main>
-
+      </main>
+    </>
   )
 
 }

@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import Home from './Home';
 import FilmDetail from './FilmDetail';
+import PersonDetail from './PersonDetail';
 import Header from './Header';
 import LowerHeader from './LowerHeader';
 import Search from './Search';
@@ -18,8 +19,11 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/detail/movie/:filmID">
+          <Route exact path="/detail/movie/:filmID">
             <FilmDetail/>
+          </Route>
+          <Route path="/detail/person/:personID">
+            <PersonDetail/>
           </Route>
           <Route path="/search/:search">
             <Search />

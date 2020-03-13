@@ -7,7 +7,7 @@ function Discover() {
   const [isLoading, setIsLoading] = useState(true);
   const [discoverFilms, setDiscoverFilms] = useState([]);
   const [page, setPage] = useState(1);
-  const [formData, setFormData] = useState({year: "", voteAverage: "", sortBy: "popularity.desc"});
+  const [formData, setFormData] = useState({year: "", voteAverage: "", sortBy: "popularity.desc", genres: ""});
   const history = useHistory();
 
   useEffect(() => {
