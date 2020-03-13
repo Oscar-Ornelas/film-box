@@ -240,9 +240,12 @@ function FilmDetail() {
               />}
             </section>
 
-            <section>
-              <FilmCardContainer header="Similar Movies" filmList={similarMovies}/>
-            </section>
+            {similarMovies.length === 0 ? "" : 
+              <section>
+                <FilmCardContainer header="Similar Movies" filmList={similarMovies}/>
+              </section>
+            }
+
 
           </div>
 
