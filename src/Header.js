@@ -36,7 +36,7 @@ function Header(props) {
       <div className={`header-content ${props.navSlide ? "navigation-open" : "navigation-close"}`}>
         <div className="logo-container">
           <Link to="/" className="link">
-            <h1 className="logo">Filmbox</h1>
+            <h1 onClick={() => window.scrollTo(0, 0)} className="logo">Filmbox</h1>
           </Link>
         </div>
         <nav className="nav">
