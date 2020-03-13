@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
-import useDataCall from './useDataCall';
+import usefilmListCall from './useFilmListCall';
 
 function ImageCarousel(props) {
   let items = [];
@@ -12,7 +12,7 @@ function ImageCarousel(props) {
     }
   );
   const [galleryItems, setGalleryItems] = useState([]);
-  const latest = useDataCall("now_playing");
+  const latest = usefilmListCall("now_playing");
 
   useEffect(() => {
     let count = 0;

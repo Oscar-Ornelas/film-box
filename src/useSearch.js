@@ -19,7 +19,7 @@ function useSearch() {
     setPage(prevPage => prevPage - 1);
   }
 
-  return {searchFilms, setSearchFilms, increment, decrement, changeRoute, page, films};
+  return {searchFilms, setSearchFilms, increment, decrement, changeRoute, page};
 }
 
 export default useSearch;

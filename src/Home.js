@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import useDataCall from './useDataCall';
+import usefilmListCall from './useFilmListCall';
 import {SemipolarLoading} from 'react-loadingg';
 import ImageCarousel from './ImageCarousel';
 import FilmCardContainer from './FilmCardContainer';
 import Footer from './Footer';
 
 function Home() {
-  const popular = useDataCall("popular");
-  const upcoming = useDataCall("upcoming");
-  const nowPlaying = useDataCall("now_playing");
-  const topRated = useDataCall("top_rated");
+  const popular = usefilmListCall("popular");
+  const upcoming = usefilmListCall("upcoming");
+  const nowPlaying = usefilmListCall("now_playing");
+  const topRated = usefilmListCall("top_rated");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

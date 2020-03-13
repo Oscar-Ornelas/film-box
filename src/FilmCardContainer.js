@@ -48,7 +48,7 @@ function FilmCardContainer(props) {
   const slidePrev = () => setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1);
 
   return (
-      <div className="film-card-container">
+      <section className="film-card-container">
         <h2 className="carousel-header">{props.header}</h2>
 
         <div className="carousel-inner">
@@ -67,7 +67,7 @@ function FilmCardContainer(props) {
           <button className="carousel-btn prev-btn" onClick={() => slidePrev()}><i className="fas fa-chevron-left"></i></button>
           <button className="carousel-btn next-btn" onClick={() => slideNext()}><i className="fas fa-chevron-right"></i></button>
         </div>
-      </div>
+      </section>
 
   )
 }
