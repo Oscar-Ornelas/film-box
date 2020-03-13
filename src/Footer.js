@@ -11,7 +11,7 @@ function Footer() {
           <div className="footer-nav-content">
             <ul className="footer-nav-list">
               <li className="footer-nav-item" onClick={() => window.scrollTo(0, 0)}>Home</li>
-              <Link className="link" to="/"><li className="footer-nav-item">Discover</li></Link>
+              <Link className="link" to="/discover"><li className="footer-nav-item">Discover</li></Link>
             </ul>
           </div>
         </div>
@@ -21,7 +21,7 @@ function Footer() {
           <p className="footer-info-item">Phone: <span>512-831-8142</span></p>
         </div>
       </div>
-    
+
       <div className="api-info">
         <img className="api-logo" src={apiLogo}/>
 
