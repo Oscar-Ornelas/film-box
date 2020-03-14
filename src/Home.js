@@ -20,7 +20,7 @@ function Home() {
 
   return (
     <>
-      <main>
+      <main className="home">
 
         <div className={`loading-icon ${isLoading ? "visible" : "hidden"}`}>
           <SemipolarLoading/>

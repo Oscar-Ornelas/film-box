@@ -18,8 +18,10 @@ function Header(props) {
   }
 
   function changeRoute() {
-    history.push(`/search/${search}`);
-    window.location.reload();
+    if(search !== "") {
+      history.push(`/search/${search}`);
+      window.location.reload();
+    }
   }
 
   useEffect(() => {

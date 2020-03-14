@@ -3,10 +3,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: 'Montserrat';
   margin: 0;
@@ -26,10 +22,16 @@ button {
   display: inline-block;
 }
 
- .link {
+.container {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
    text-decoration: none;
    color: inherit;
- }
+}
 
 /* Header */
 .header {
@@ -245,12 +247,6 @@ button {
 }
 
 /*Home*/
-.container {
-  padding: 0 1em;
-  display: flex;
-  flex-direction: column;
-}
-
 .loading-icon {
   position: fixed;
   width: 200px;
