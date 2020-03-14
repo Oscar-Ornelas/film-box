@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8e4ca96a5ec89bfcaafaf2e8c0dc682e",
+    "revision": "e0b44d3933c94c0f6ab0258fa5df396d",
     "url": "/film-box/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/film-box/static/css/2.c2d4b67f.chunk.css"
   },
   {
-    "revision": "7cbe6c3602127687391c",
-    "url": "/film-box/static/css/main.063325c1.chunk.css"
+    "revision": "307420acc7ac8424672b",
+    "url": "/film-box/static/css/main.6db7e16d.chunk.css"
   },
   {
     "revision": "e436443c53b3c511c13d",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/film-box/static/js/2.35503a26.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7cbe6c3602127687391c",
-    "url": "/film-box/static/js/main.b3de1143.chunk.js"
+    "revision": "307420acc7ac8424672b",
+    "url": "/film-box/static/js/main.bc24838c.chunk.js"
   },
   {
     "revision": "ec5f1f0c8de49e53739f",
